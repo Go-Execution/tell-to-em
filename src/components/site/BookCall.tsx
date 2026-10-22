@@ -1,13 +1,12 @@
 import { useState, type FormEvent } from "react";
-import { Phone, Mail, MapPin, CheckCircle2, ArrowRight } from "lucide-react";
 import { Reveal } from "./Reveal";
 
-const PROGRAM_CHOICES = [
+const FORMAT_OPTIONS = [
   "School Assembly (Middle or High School)",
-  "Youth Intervention Circle (Small Group)",
+  "Small-Group Intervention Circle",
   "Educator In-Service / PD Workshop",
   "Community or Faith-Based Youth Event",
-  "Custom Campus Residency / Multi-Day",
+  "Full-Day Campus Residency / Multi-Keynote",
 ];
 
 export function BookCall() {
@@ -16,9 +15,8 @@ export function BookCall() {
     org: "",
     email: "",
     phone: "",
-    program: "",
+    format: "",
     date: "",
-    attendance: "",
     notes: "",
   });
   const [submitted, setSubmitted] = useState(false);
@@ -31,77 +29,79 @@ export function BookCall() {
   };
 
   return (
-    <section id="contact" className="relative py-24 sm:py-32 bg-slate-900 text-white">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8">
-        <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">
-          {/* Speaker Direct Contact Details (5 cols) */}
-          <div className="lg:col-span-5">
-            <Reveal>
-              <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
-                Book Brett to Speak
+    <section id="inquire" className="relative py-24 sm:py-32 bg-[#FAF8F5]">
+      <div className="mx-auto max-w-7xl px-6 sm:px-10">
+        <Reveal>
+          <div className="grid gap-14 lg:grid-cols-12 lg:gap-20">
+            {/* Left: Speaker Contact & Authority */}
+            <div className="lg:col-span-5">
+              <span className="font-mono-label text-[11px] text-[#7A746B]">
+                Booking &amp; Inquiries
               </span>
-              <h2 className="font-display mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-                Check Dates &amp; Fees for Your Campus
+
+              <h2 className="font-serif mt-3 text-3xl sm:text-5xl font-normal text-[#181614]">
+                Reserve Dates for Your Campus
               </h2>
 
-              <p className="mt-5 text-base leading-relaxed text-slate-300">
-                Planning an assembly, staff in-service, or youth diversion circle? Complete the form
-                to receive fee details, custom program options, and date holds within 24 hours.
+              <p className="mt-6 text-base text-[#5A554E] leading-relaxed">
+                Brett Lasko accepts a limited calendar of school assemblies and intervention
+                residencies each semester. To reserve a tentative date hold or receive a transparent
+                honorarium quote, submit the form or reach out directly.
               </p>
 
-              {/* Direct Contacts */}
-              <div className="mt-10 space-y-6 border-t border-slate-800 pt-8 text-sm">
+              <div className="mt-10 border-t border-[#E8E4DC] pt-8 space-y-6 text-sm">
                 <div>
-                  <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
-                    Speaker Direct Line
+                  <span className="font-mono-label text-[10px] text-[#7A746B]">
+                    Direct Phone (Call or Text)
                   </span>
                   <a
                     href="tel:+15152384806"
-                    className="mt-1 flex items-center gap-2 font-display text-xl font-bold text-white hover:text-blue-400 transition-colors"
+                    className="block font-serif text-2xl font-normal text-[#181614] hover:underline mt-1"
                   >
-                    <Phone className="h-5 w-5 text-blue-400" />
-                    <span>(515) 238-4806</span>
+                    515.238.4806
                   </a>
                 </div>
 
                 <div>
-                  <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
-                    Direct Email
-                  </span>
+                  <span className="font-mono-label text-[10px] text-[#7A746B]">Direct Email</span>
                   <a
                     href="mailto:brett.lasko@icloud.com"
-                    className="mt-1 flex items-center gap-2 font-medium text-white hover:text-blue-400 transition-colors break-all"
+                    className="block font-mono text-sm text-[#181614] hover:underline mt-1 break-all"
                   >
-                    <Mail className="h-5 w-5 text-blue-400 shrink-0" />
-                    <span>brett.lasko@icloud.com</span>
+                    brett.lasko@icloud.com
                   </a>
                 </div>
 
                 <div>
-                  <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
-                    Base Location
+                  <span className="font-mono-label text-[10px] text-[#7A746B]">
+                    Location &amp; Travel
                   </span>
-                  <div className="mt-1 flex items-center gap-2 text-slate-300">
-                    <MapPin className="h-5 w-5 text-blue-400 shrink-0" />
-                    <span>Des Moines, Iowa (Travels Nationwide)</span>
-                  </div>
+                  <p className="font-serif text-base text-[#181614] mt-1">
+                    Des Moines, Iowa • Available for Nationwide Travel
+                  </p>
+                </div>
+
+                <div className="pt-4 border-t border-[#E8E4DC]">
+                  <p className="text-xs text-[#7A746B] leading-relaxed">
+                    Need a W-9, vendor onboarding packet, or insurance verification for your school
+                    board? Our booking desk provides all institutional documentation immediately.
+                  </p>
                 </div>
               </div>
-            </Reveal>
-          </div>
+            </div>
 
-          {/* Form (7 cols) */}
-          <div className="lg:col-span-7">
-            <Reveal delay={100}>
-              <div className="rounded-2xl border border-slate-800 bg-slate-950 p-8 sm:p-10 shadow-2xl">
+            {/* Right: Clean Editorial Form */}
+            <div className="lg:col-span-7">
+              <div className="border border-[#181614] bg-white p-8 sm:p-12">
                 {submitted ? (
                   <div className="py-12 text-center">
-                    <CheckCircle2 className="mx-auto h-14 w-14 text-teal-400" />
-                    <h3 className="font-display mt-5 text-2xl font-bold">Inquiry Received</h3>
-                    <p className="mt-3 text-sm text-slate-300 max-w-md mx-auto">
-                      Thank you, <strong className="text-white">{form.name}</strong>. Brett has
-                      received your event inquiry and will follow up with availability and fee
-                      details within 24 hours.
+                    <span className="font-mono-label text-xs text-[#7A746B]">Inquiry Logged</span>
+                    <h3 className="font-serif mt-4 text-3xl font-normal text-[#181614]">
+                      Thank you, {form.name}.
+                    </h3>
+                    <p className="mt-3 text-sm text-[#5A554E] max-w-md mx-auto leading-relaxed">
+                      Brett has received your campus inquiry. You will receive an email response
+                      with calendar availability and honorarium details within 24 hours.
                     </p>
                     <button
                       type="button"
@@ -112,62 +112,70 @@ export function BookCall() {
                           org: "",
                           email: "",
                           phone: "",
-                          program: "",
+                          format: "",
                           date: "",
-                          attendance: "",
                           notes: "",
                         });
                       }}
-                      className="mt-8 rounded-full border border-slate-700 px-6 py-2.5 text-xs font-semibold text-slate-300 hover:text-white hover:border-slate-500"
+                      className="mt-8 font-mono-label text-xs underline text-[#181614]"
                     >
                       Submit Another Inquiry
                     </button>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-5">
-                    <div className="grid gap-5 sm:grid-cols-2">
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="border-b border-[#E8E4DC] pb-4">
+                      <span className="font-mono-label text-xs text-[#181614]">
+                        Schedule Inquiry Form
+                      </span>
+                      <p className="text-xs text-[#7A746B] mt-1">
+                        All fields marked with an asterisk (*) are required.
+                      </p>
+                    </div>
+
+                    <div className="grid gap-6 sm:grid-cols-2">
                       <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-slate-300">
-                          Your Full Name *
+                        <label className="block font-mono-label text-[10px] text-[#181614]">
+                          Your Name *
                         </label>
                         <input
                           required
                           value={form.name}
                           onChange={(e) => setForm({ ...form, name: e.target.value })}
-                          placeholder="e.g. Principal Sarah Miller"
-                          className="mt-1.5 w-full rounded-xl border border-slate-800 bg-slate-900 px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none focus:border-white focus:ring-1 focus:ring-white"
+                          placeholder="e.g. Principal Miller"
+                          className="mt-1.5 w-full border-b border-[#181614] bg-transparent py-2 text-sm text-[#181614] placeholder:text-[#A69F94] outline-none focus:border-b-2"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-slate-300">
-                          School / Organization Name *
+                        <label className="block font-mono-label text-[10px] text-[#181614]">
+                          School or Organization *
                         </label>
                         <input
                           required
                           value={form.org}
                           onChange={(e) => setForm({ ...form, org: e.target.value })}
-                          placeholder="e.g. Roosevelt High School"
-                          className="mt-1.5 w-full rounded-xl border border-slate-800 bg-slate-900 px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none focus:border-white focus:ring-1 focus:ring-white"
+                          placeholder="e.g. West High School"
+                          className="mt-1.5 w-full border-b border-[#181614] bg-transparent py-2 text-sm text-[#181614] placeholder:text-[#A69F94] outline-none focus:border-b-2"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-slate-300">
-                          Work Email *
+                        <label className="block font-mono-label text-[10px] text-[#181614]">
+                          Professional Email *
                         </label>
                         <input
                           required
                           type="email"
                           value={form.email}
                           onChange={(e) => setForm({ ...form, email: e.target.value })}
-                          placeholder="smiller@school.edu"
-                          className="mt-1.5 w-full rounded-xl border border-slate-800 bg-slate-900 px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none focus:border-white focus:ring-1 focus:ring-white"
+                          placeholder="name@school.edu"
+                          className="mt-1.5 w-full border-b border-[#181614] bg-transparent py-2 text-sm text-[#181614] placeholder:text-[#A69F94] outline-none focus:border-b-2"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-slate-300">
+                        <label className="block font-mono-label text-[10px] text-[#181614]">
                           Phone Number *
                         </label>
                         <input
@@ -175,68 +183,69 @@ export function BookCall() {
                           type="tel"
                           value={form.phone}
                           onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                          placeholder="(515) 555-0144"
-                          className="mt-1.5 w-full rounded-xl border border-slate-800 bg-slate-900 px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none focus:border-white focus:ring-1 focus:ring-white"
+                          placeholder="515.555.0123"
+                          className="mt-1.5 w-full border-b border-[#181614] bg-transparent py-2 text-sm text-[#181614] placeholder:text-[#A69F94] outline-none focus:border-b-2"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-slate-300">
-                          Program Format
+                        <label className="block font-mono-label text-[10px] text-[#181614]">
+                          Desired Program Format
                         </label>
                         <select
-                          value={form.program}
-                          onChange={(e) => setForm({ ...form, program: e.target.value })}
-                          className="mt-1.5 w-full rounded-xl border border-slate-800 bg-slate-900 px-4 py-3 text-sm text-white outline-none focus:border-white focus:ring-1 focus:ring-white"
+                          value={form.format}
+                          onChange={(e) => setForm({ ...form, format: e.target.value })}
+                          className="mt-1.5 w-full border-b border-[#181614] bg-transparent py-2 text-xs text-[#181614] outline-none focus:border-b-2"
                         >
                           <option value="">Select a format…</option>
-                          {PROGRAM_CHOICES.map((choice) => (
-                            <option key={choice} value={choice} className="bg-slate-900 text-white">
-                              {choice}
+                          {FORMAT_OPTIONS.map((opt) => (
+                            <option key={opt} value={opt}>
+                              {opt}
                             </option>
                           ))}
                         </select>
                       </div>
 
                       <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-slate-300">
-                          Estimated Event Date
+                        <label className="block font-mono-label text-[10px] text-[#181614]">
+                          Target Date or Semester
                         </label>
                         <input
-                          type="date"
                           value={form.date}
                           onChange={(e) => setForm({ ...form, date: e.target.value })}
-                          className="mt-1.5 w-full rounded-xl border border-slate-800 bg-slate-900 px-4 py-3 text-sm text-white outline-none focus:border-white focus:ring-1 focus:ring-white [color-scheme:dark]"
+                          placeholder="e.g. Fall 2026 or Oct 14"
+                          className="mt-1.5 w-full border-b border-[#181614] bg-transparent py-2 text-sm text-[#181614] placeholder:text-[#A69F94] outline-none focus:border-b-2"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-300">
-                        Event Goals &amp; Student Demographics
+                      <label className="block font-mono-label text-[10px] text-[#181614]">
+                        Campus Demographics &amp; Core Priorities
                       </label>
                       <textarea
                         rows={3}
                         value={form.notes}
                         onChange={(e) => setForm({ ...form, notes: e.target.value })}
-                        placeholder="Tell us about your campus, age group, or specific challenges you want Brett to speak on…"
-                        className="mt-1.5 w-full rounded-xl border border-slate-800 bg-slate-900 px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none focus:border-white focus:ring-1 focus:ring-white resize-none"
+                        placeholder="Tell us about your student body, grade levels, or specific behavioral challenges you would like Brett to address…"
+                        className="mt-1.5 w-full border-b border-[#181614] bg-transparent py-2 text-sm text-[#181614] placeholder:text-[#A69F94] outline-none focus:border-b-2 resize-none"
                       />
                     </div>
 
-                    <button
-                      type="submit"
-                      className="mt-4 flex w-full items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-xs font-bold uppercase tracking-wider text-slate-950 transition-all hover:bg-slate-200"
-                    >
-                      <span>Request Availability &amp; Quote</span>
-                      <ArrowRight className="h-4 w-4" />
-                    </button>
+                    <div className="pt-4">
+                      <button
+                        type="submit"
+                        className="w-full bg-[#181614] py-4 text-xs font-bold uppercase tracking-widest text-[#FAF8F5] transition-all hover:bg-black"
+                      >
+                        Submit Date &amp; Fee Request
+                      </button>
+                    </div>
                   </form>
                 )}
               </div>
-            </Reveal>
+            </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

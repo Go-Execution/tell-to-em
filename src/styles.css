@@ -2,12 +2,11 @@
 @source "../src";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
-
 /*
- * Talk2em LLC — Modern Editorial Public Speaker Design System.
- * Clean, minimalist, high-whitespace aesthetic inspired by top keynote speakers.
- * High-contrast typography, crisp borders, restrained color palette.
+ * Talk2em LLC — Bespoke Editorial & Magazine Public Speaker Design System.
+ * Warm tactile linen canvas (#FAF8F5), deep espresso ink typography (#181614),
+ * Newsreader editorial serif headings, and refined hairline rules.
+ * Intentionally crafted to avoid generic AI layout cliches.
  */
 
 @theme inline {
@@ -15,85 +14,72 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 16px);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
+  --color-border: var(--border);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
 
-  --font-display: "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-sans: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif: "Newsreader", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, sans-serif;
+  --font-mono: "Space Grotesk", sans-serif;
 }
 
 :root {
-  --radius: 0.75rem;
+  --radius: 0.5rem;
 
-  /* Clean White Canvas */
-  --background: #ffffff;
-  --foreground: #111827;
+  /* Warm Linen Editorial Canvas */
+  --background: #faf8f5;
+  --foreground: #181614;
   --card: #ffffff;
-  --card-foreground: #111827;
-  --popover: #ffffff;
-  --popover-foreground: #111827;
+  --card-foreground: #181614;
+  --border: #e8e4dc;
+  --muted: #f3efe8;
+  --muted-foreground: #666059;
 
-  /* Primary: Deep Midnight Navy / Black for commanding authority */
-  --primary: #0f172a;
-  --primary-foreground: #ffffff;
-
-  /* Accent: Energetic Warm Amber / Cobalt */
-  --accent: #2563eb;
-  --accent-foreground: #ffffff;
-
-  /* Secondary & Muted */
-  --secondary: #f8fafc;
-  --secondary-foreground: #1e293b;
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
-
-  /* Destructive */
-  --destructive: #dc2626;
-  --destructive-foreground: #ffffff;
-
-  /* Crisp, subtle borders */
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --ring: #0f172a;
+  --primary: #181614;
+  --primary-foreground: #faf8f5;
 }
 
 @layer base {
   * {
-    border-color: var(--color-border);
+    border-color: var(--border);
   }
 
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
-    color-scheme: light;
+    background-color: #faf8f5;
   }
 
   body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
+    background-color: var(--background);
+    color: var(--foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    line-height: 1.6;
+    letter-spacing: -0.01em;
   }
+
+  h1,
+  h2,
+  h3,
+  .font-serif {
+    font-family: var(--font-serif);
+    font-feature-settings: "cv01", "cv02";
+  }
+}
+
+.font-editorial {
+  font-family: var(--font-serif);
+}
+
+.font-mono-label {
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }

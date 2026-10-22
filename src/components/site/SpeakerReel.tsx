@@ -1,124 +1,114 @@
 import { useState } from "react";
-import { Play, Check, Quote, X } from "lucide-react";
+import { Play, X } from "lucide-react";
 import heroImage from "@/assets/hero.jpg";
 import { Reveal } from "./Reveal";
 
 export function SpeakerReel() {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   return (
-    <section id="reel" className="relative py-20 bg-slate-950 text-white">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8">
+    <section id="reel" className="relative py-24 sm:py-32 bg-[#181614] text-[#FAF8F5]">
+      <div className="mx-auto max-w-7xl px-6 sm:px-10">
         <Reveal>
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
-              See The Energy In Person
-            </span>
-            <h2 className="font-display mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-              Watch Brett in Action
-            </h2>
-            <p className="mt-4 text-base text-slate-400">
-              Experience the atmosphere of a Talk2em assembly. No teleprompters, no rehearsed
-              clichés—just real, unvarnished conversation that commands the room.
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 pb-12 border-b border-[#302D29]">
+            <div>
+              <span className="font-mono-label text-[11px] text-[#A69F94]">
+                Audio &amp; Visual Reel
+              </span>
+              <h2 className="font-serif mt-3 text-3xl sm:text-5xl font-normal text-white">
+                Experience the room when Brett takes the floor.
+              </h2>
+            </div>
+            <p className="max-w-md text-sm text-[#A69F94] leading-relaxed">
+              No podiums, no teleprompters, no rehearsed clichés. Just intense presence, infectious
+              humor, and total student engagement.
             </p>
           </div>
-        </Reveal>
 
-        {/* Video Player Box */}
-        <div className="mt-12 mx-auto max-w-4xl">
-          <Reveal delay={100}>
-            <div className="relative aspect-video overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 shadow-2xl">
-              {isPlaying ? (
-                <div className="relative h-full w-full flex flex-col items-center justify-center p-6 text-center bg-slate-900">
-                  <button
-                    type="button"
-                    onClick={() => setIsPlaying(false)}
-                    className="absolute top-4 right-4 rounded-full bg-slate-800 p-2 text-white hover:bg-slate-700"
-                  >
-                    <X className="h-5 w-5" />
-                  </button>
-                  <div className="max-w-md">
-                    <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-blue-600/20 text-blue-400 mb-4">
-                      <Play className="h-6 w-6 fill-current" />
-                    </div>
-                    <h3 className="font-display text-xl font-bold">Speaker Demo Reel</h3>
-                    <p className="mt-2 text-sm text-slate-400">
-                      To request a full-length unedited assembly recording or live reference
-                      contact, connect with Brett directly.
-                    </p>
-                    <a
-                      href="#contact"
-                      className="mt-6 inline-flex rounded-full bg-white px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-slate-950 hover:bg-slate-200 transition-colors"
-                    >
-                      Request Full Preview
-                    </a>
-                  </div>
-                </div>
-              ) : (
-                <div
-                  className="group relative h-full w-full cursor-pointer"
-                  onClick={() => setIsPlaying(true)}
+          {/* Cinema Frame */}
+          <div className="mt-12 relative">
+            <div
+              className="group relative aspect-[16/9] sm:aspect-[21/9] overflow-hidden border border-[#302D29] bg-black cursor-pointer"
+              onClick={() => setOpenModal(true)}
+            >
+              <img
+                src={heroImage}
+                alt="Brett Lasko addressing students"
+                className="h-full w-full object-cover opacity-60 transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 flex flex-col items-center justify-center">
+                <button
+                  type="button"
+                  aria-label="Play Speaker Reel"
+                  className="flex h-20 w-20 items-center justify-center rounded-full border border-white/40 bg-white/10 backdrop-blur-md text-white transition-transform duration-300 group-hover:scale-110"
                 >
-                  <img
-                    src={heroImage}
-                    alt="Speaker Brett Lasko commanding a student audience"
-                    className="h-full w-full object-cover opacity-70 transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-slate-950/40" />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <button
-                      type="button"
-                      aria-label="Play speaker reel preview"
-                      className="flex h-20 w-20 items-center justify-center rounded-full bg-white text-slate-950 shadow-2xl transition-transform duration-300 group-hover:scale-110"
-                    >
-                      <Play className="h-8 w-8 fill-slate-950 translate-x-0.5" />
-                    </button>
-                    <span className="mt-4 text-xs font-bold uppercase tracking-wider text-white">
-                      Click to Play Highlight Reel
-                    </span>
-                  </div>
-                </div>
-              )}
+                  <Play className="h-7 w-7 fill-white translate-x-0.5" />
+                </button>
+                <span className="mt-4 font-mono-label text-xs text-white tracking-widest">
+                  Watch Assembly Reel (3:15)
+                </span>
+              </div>
             </div>
-          </Reveal>
-        </div>
+          </div>
 
-        {/* 3 Key Takeaways underneath */}
-        <div className="mt-14 grid gap-8 sm:grid-cols-3 max-w-5xl mx-auto border-t border-slate-900 pt-10">
-          <div className="flex items-start gap-3">
-            <Check className="h-5 w-5 text-blue-400 shrink-0 mt-0.5" />
+          {/* Editorial Notes */}
+          <div className="mt-12 grid gap-8 sm:grid-cols-3 pt-8 border-t border-[#302D29]">
             <div>
-              <h4 className="font-display text-sm font-bold text-white">Zero Lecturing</h4>
-              <p className="mt-1 text-xs text-slate-400">
-                Students tune out moral speeches. We connect through mutual respect and lived
-                reality.
+              <span className="font-mono-label text-xs text-[#A69F94]">01. Command</span>
+              <h4 className="font-serif text-lg text-white mt-1">Full-Floor Movement</h4>
+              <p className="mt-1 text-xs text-[#A69F94] leading-relaxed">
+                Brett walks the auditorium aisles, engaging directly with distracted students and
+                bringing the back rows forward.
+              </p>
+            </div>
+            <div>
+              <span className="font-mono-label text-xs text-[#A69F94]">02. Connection</span>
+              <h4 className="font-serif text-lg text-white mt-1">No Scripted Condescension</h4>
+              <p className="mt-1 text-xs text-[#A69F94] leading-relaxed">
+                Speaks like an older brother who survived the streets, not an administrator passing
+                judgment.
+              </p>
+            </div>
+            <div>
+              <span className="font-mono-label text-xs text-[#A69F94]">03. Safety</span>
+              <h4 className="font-serif text-lg text-white mt-1">Staff Hand-Off Protocol</h4>
+              <p className="mt-1 text-xs text-[#A69F94] leading-relaxed">
+                Full compliance with school safety standards. Any vulnerable disclosures are
+                immediately bridged to on-site counselors.
               </p>
             </div>
           </div>
-          <div className="flex items-start gap-3">
-            <Check className="h-5 w-5 text-blue-400 shrink-0 mt-0.5" />
-            <div>
-              <h4 className="font-display text-sm font-bold text-white">Active Stage Command</h4>
-              <p className="mt-1 text-xs text-slate-400">
-                Brett roams the auditorium floor, making direct eye contact with every section of
-                students.
-              </p>
-            </div>
-          </div>
-          <div className="flex items-start gap-3">
-            <Check className="h-5 w-5 text-blue-400 shrink-0 mt-0.5" />
-            <div>
-              <h4 className="font-display text-sm font-bold text-white">
-                Seamless Counselor Hand-Off
-              </h4>
-              <p className="mt-1 text-xs text-slate-400">
-                Any sensitive student discussions after the bell are seamlessly coordinated with
-                your staff.
-              </p>
+        </Reveal>
+      </div>
+
+      {/* Reel Modal */}
+      {openModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-md">
+          <div className="relative w-full max-w-3xl rounded-xl border border-[#302D29] bg-[#181614] p-8 text-center text-white">
+            <button
+              type="button"
+              onClick={() => setOpenModal(false)}
+              className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white"
+            >
+              <X className="h-6 w-6" />
+            </button>
+            <h3 className="font-serif text-2xl font-normal text-white">Speaker Sizzle Reel</h3>
+            <p className="mt-3 text-sm text-[#A69F94] max-w-md mx-auto">
+              To review an unedited, full-length 45-minute assembly video or connect with previous
+              principal references, please submit a date inquiry.
+            </p>
+            <div className="mt-8 flex justify-center gap-4">
+              <a
+                href="#inquire"
+                onClick={() => setOpenModal(false)}
+                className="rounded-full bg-white px-6 py-3 text-xs font-bold uppercase tracking-wider text-black"
+              >
+                Inquire for Full Recording
+              </a>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </section>
   );
 }

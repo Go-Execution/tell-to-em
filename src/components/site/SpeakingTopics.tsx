@@ -1,104 +1,125 @@
-import { ArrowRight } from "lucide-react";
 import { Reveal } from "./Reveal";
 
 const TOPICS = [
   {
-    number: "01",
+    code: "KEYNOTE 01",
     title: "The Power of the Next 5 Minutes",
-    focus: "Impulse Control, Emotional Regulation & Accountability",
-    description:
-      "Most life-altering mistakes don't happen after weeks of calculation—they happen in an impulsive 5-minute flash of anger, peer pressure, or defiance. Brett teaches students how to create space between emotional trigger and permanent consequence.",
-    outcomes:
-      "Teaches impulse pause, breaks automatic defensive reactions, and instills personal pride in taking the high road.",
+    theme: "Impulse Control & Critical Decision Frameworks",
+    synopsis:
+      "Most life-altering mistakes don't happen after weeks of deliberate planning. They happen in a 5-minute flash of peer pressure, reactive anger, or bruised ego. Brett teaches students the psychology of the 'pause'—how to separate feelings from reactions and avoid choices that permanently cost their freedom.",
+    keyPoints: [
+      "The 'Pause Principle': Breaking the automatic defensive reflex",
+      "Why feelings are temporary, but court dates and suspensions are permanent",
+      "Taking pride in walking away from situations that lead nowhere",
+    ],
   },
   {
-    number: "02",
+    code: "KEYNOTE 02",
     title: "Who's In Your Circle?",
-    focus: "Peer Influence, True Loyalty vs. Self-Sabotage",
-    description:
-      "Show me your friends, and I will show you your future. Brett challenges young people to re-examine the company they keep, exposing the critical difference between friends who want the best for you and friends who just want company in bad decisions.",
-    outcomes:
-      "Helps students set healthy boundaries with peers, avoid toxic crowd dynamics, and seek positive mentorship.",
+    theme: "Peer Influence, True Loyalty vs. Mutual Sabotage",
+    synopsis:
+      "Show me your friends, and I will show your future. Brett challenges young people to ruthlessly evaluate the company they keep, exposing the fatal difference between real friends who push you toward greatness and friends who only want company in poor decisions.",
+    keyPoints: [
+      "The loyalty lie: Friends who push you to do wrong won't sit in the cell for you",
+      "How to set boundaries with childhood friends without starting conflicts",
+      "Finding mentors and peers who raise your standard of living",
+    ],
   },
   {
-    number: "03",
+    code: "KEYNOTE 03",
     title: "Turning Adversity Into Armor",
-    focus: "Resilience, Overcoming Trauma & Refusing to Be a Statistic",
-    description:
-      "Many teens believe family adversity, economic hardship, or past mistakes trap them in a cycle. Brett flips hardship on its head—showing youth how to transform pain and adversity into an unbreakable work ethic and purpose.",
-    outcomes:
-      "Breaks victim mindsets, reframes adversity as strength, and inspires long-term academic and personal ambition.",
+    theme: "Resilience, Overcoming Family Trauma & Refusing to Be a Statistic",
+    synopsis:
+      "Many young people believe their neighborhood, socioeconomic background, or family brokenness traps them in a predetermined box. Brett flips hardship on its head—showing youth how struggle qualifies them to lead rather than excuses them from striving.",
+    keyPoints: [
+      "Breaking generational cycles of incarceration, addiction, and apathy",
+      "Reframing shame into an unbreakable personal work ethic",
+      "Why your past mistake is a lesson, not a life sentence",
+    ],
   },
   {
-    number: "04",
+    code: "KEYNOTE 04",
     title: "Owning Your Name",
-    focus: "Reputation, Digital Responsibility & Self-Respect",
-    description:
-      "In a culture obsessed with viral validation, young people frequently sacrifice their long-term name for 15 seconds of online clout. This keynote restores dignity in personal character, online footprint, and self-respect.",
-    outcomes:
-      "Addresses social media drama, digital permanence, and standing tall with integrity even when standing alone.",
+    theme: "Reputation, Digital Responsibility & Self-Respect",
+    synopsis:
+      "In a culture addicted to viral clout, teens frequently sacrifice their long-term name for 15 seconds of online attention. This keynote rebuilds dignity in personal character, online footprint, and self-respect.",
+    keyPoints: [
+      "The permanency of social media posts, group chats, and digital drama",
+      "What it means when people speak your name in rooms you haven't entered yet",
+      "Standing tall with integrity even when standing completely alone",
+    ],
   },
 ];
 
 export function SpeakingTopics() {
   return (
-    <section id="topics" className="relative py-24 sm:py-32 bg-white">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8">
+    <section id="topics" className="relative py-24 sm:py-32 border-b border-[#E8E4DC] bg-[#FAF8F5]">
+      <div className="mx-auto max-w-7xl px-6 sm:px-10">
         <Reveal>
-          <div className="max-w-3xl">
-            <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
-              Keynote Curriculum
-            </span>
-            <h2 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl lg:text-5xl">
-              Signature Speaking Topics
-            </h2>
-            <p className="mt-4 text-base text-slate-600 sm:text-lg">
-              Each keynote is delivered with gripping personal stories, intense humor, and practical
-              psychological tools that students recall long after the event.
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 pb-12 border-b border-[#E8E4DC]">
+            <div>
+              <span className="font-mono-label text-[11px] text-[#7A746B]">
+                Curriculum &amp; Lecture Topics
+              </span>
+              <h2 className="font-serif mt-3 text-3xl sm:text-5xl font-normal text-[#181614]">
+                Signature Keynotes
+              </h2>
+            </div>
+            <p className="max-w-md text-sm text-[#5A554E] leading-relaxed">
+              Every topic is customized to your school's specific behavioral and cultural priorities
+              during the pre-event discovery call.
             </p>
           </div>
-        </Reveal>
 
-        {/* Clean Editorial List with Generous Whitespace */}
-        <div className="mt-16 divide-y divide-slate-200 border-y border-slate-200">
-          {TOPICS.map((topic, i) => (
-            <Reveal key={topic.title} delay={i * 80}>
-              <div className="py-10 sm:py-12 grid gap-6 lg:grid-cols-12 lg:items-start">
-                <div className="lg:col-span-1">
-                  <span className="font-display text-2xl font-bold text-slate-400">
-                    {topic.number}
-                  </span>
-                </div>
+          {/* Curriculum Grid */}
+          <div className="grid gap-12 lg:grid-cols-2 pt-12">
+            {TOPICS.map((topic) => (
+              <div
+                key={topic.title}
+                className="flex flex-col justify-between border-t border-[#181614] pt-6"
+              >
+                <div>
+                  <div className="flex items-center justify-between text-xs font-mono-label text-[#7A746B]">
+                    <span>{topic.code}</span>
+                    <span>{topic.theme}</span>
+                  </div>
 
-                <div className="lg:col-span-5">
-                  <h3 className="font-display text-2xl font-bold text-slate-950">{topic.title}</h3>
-                  <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-slate-500">
-                    {topic.focus}
-                  </p>
-                </div>
+                  <h3 className="font-serif text-2xl sm:text-3xl font-medium text-[#181614] mt-3">
+                    {topic.title}
+                  </h3>
 
-                <div className="lg:col-span-6">
-                  <p className="text-sm leading-relaxed text-slate-600 sm:text-base">
-                    {topic.description}
-                  </p>
-                  <p className="mt-3 text-xs text-slate-500">
-                    <strong className="font-semibold text-slate-700">Student Takeaway:</strong>{" "}
-                    {topic.outcomes}
-                  </p>
-                  <div className="mt-4">
-                    <a
-                      href="#contact"
-                      className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-950 hover:underline"
-                    >
-                      <span>Inquire About This Topic</span>
-                      <ArrowRight className="h-3.5 w-3.5" />
-                    </a>
+                  <p className="mt-4 text-sm text-[#5A554E] leading-relaxed">{topic.synopsis}</p>
+
+                  <div className="mt-6 border-t border-[#E8E4DC] pt-4">
+                    <p className="font-mono-label text-[11px] text-[#181614] mb-2">
+                      Core Learning Objectives:
+                    </p>
+                    <ul className="space-y-1.5 text-xs text-[#5A554E]">
+                      {topic.keyPoints.map((pt) => (
+                        <li key={pt} className="flex items-start gap-2">
+                          <span className="text-[#181614]">—</span>
+                          <span>{pt}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
+
+                <div className="mt-8 pt-4 border-t border-[#E8E4DC]/60 flex items-center justify-between">
+                  <span className="text-xs font-mono-label text-[#7A746B]">
+                    Keynote / Circle Format
+                  </span>
+                  <a
+                    href="#inquire"
+                    className="font-mono-label text-xs font-bold text-[#181614] hover:underline"
+                  >
+                    Request this Keynote →
+                  </a>
+                </div>
               </div>
-            </Reveal>
-          ))}
-        </div>
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
   );

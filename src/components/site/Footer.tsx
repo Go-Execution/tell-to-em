@@ -1,47 +1,45 @@
-import { Phone, Mail, MapPin } from "lucide-react";
-
 export function Footer() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
-    <footer className="border-t border-slate-200 bg-white py-14">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8">
-        <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+    <footer className="border-t border-[#E8E4DC] bg-[#FAF8F5] py-16">
+      <div className="mx-auto max-w-7xl px-6 sm:px-10">
+        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-6 pb-12 border-b border-[#E8E4DC]">
           <div>
-            <span className="font-display text-lg font-bold text-slate-950">
-              Brett Lasko <span className="font-normal text-slate-500">| Talk2em LLC</span>
-            </span>
-            <p className="font-display text-sm italic text-slate-600 mt-1">
+            <span className="font-serif text-3xl font-normal text-[#181614]">Brett Lasko</span>
+            <span className="font-mono-label text-xs text-[#7A746B] ml-3">Talk2em LLC</span>
+            <p className="font-serif italic text-base text-[#5A554E] mt-2">
               “Our Words, Your Wisdom”
             </p>
-            <div className="mt-3 flex flex-wrap items-center gap-6 text-xs text-slate-600">
-              <a href="tel:+15152384806" className="flex items-center gap-1.5 hover:text-slate-950">
-                <Phone className="h-3.5 w-3.5" /> (515) 238-4806
-              </a>
-              <a
-                href="mailto:brett.lasko@icloud.com"
-                className="flex items-center gap-1.5 hover:text-slate-950"
-              >
-                <Mail className="h-3.5 w-3.5" /> brett.lasko@icloud.com
-              </a>
-              <span className="flex items-center gap-1.5 text-slate-500">
-                <MapPin className="h-3.5 w-3.5" /> Des Moines, Iowa (Nationwide)
-              </span>
-            </div>
           </div>
 
-          <div className="flex flex-col items-start md:items-end gap-2 text-xs text-slate-500">
-            <button
-              type="button"
-              onClick={scrollToTop}
-              className="font-semibold text-slate-900 hover:underline"
+          <div className="flex flex-wrap items-center gap-6 text-xs font-mono-label text-[#7A746B]">
+            <a href="tel:+15152384806" className="hover:text-[#181614] transition-colors">
+              515.238.4806
+            </a>
+            <a
+              href="mailto:brett.lasko@icloud.com"
+              className="hover:text-[#181614] transition-colors"
             >
-              Back to top ↑
-            </button>
-            <p>© {new Date().getFullYear()} Talk2em LLC. All Rights Reserved.</p>
+              brett.lasko@icloud.com
+            </a>
+            <span>Des Moines, Iowa • Nationwide</span>
           </div>
+        </div>
+
+        <div className="pt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono-label text-[#7A746B]">
+          <p>
+            © {new Date().getFullYear()} Talk2em LLC. Lived guidance for America’s next generation.
+          </p>
+          <button
+            type="button"
+            onClick={scrollToTop}
+            className="hover:text-[#181614] transition-colors text-left sm:text-right"
+          >
+            Back to Top ↑
+          </button>
         </div>
       </div>
     </footer>

@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/site/Header";
 import { Hero } from "@/components/site/Hero";
-import { SpeakerReel } from "@/components/site/SpeakerReel";
 import { About } from "@/components/site/About";
+import { SpeakerReel } from "@/components/site/SpeakerReel";
 import { Services } from "@/components/site/Services";
 import { SpeakingTopics } from "@/components/site/SpeakingTopics";
 import { Feedback } from "@/components/site/Feedback";
@@ -13,7 +13,7 @@ import { Footer } from "@/components/site/Footer";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Brett Lasko — Youth Keynote Speaker & Intervention Specialist | Talk2em" },
+      { title: "Brett Lasko — Talk2em | Youth Keynote Speaker & Intervention" },
       {
         name: "description",
         content:
@@ -23,7 +23,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "“Our Words, Your Wisdom” — Assemblies, small-group intervention, and workshops for schools and youth organizations.",
+          "“Our Words, Your Wisdom” — Keynote assemblies, small-group intervention, and workshops for schools and youth organizations.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -34,12 +34,12 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="min-h-screen bg-white text-slate-900 antialiased selection:bg-slate-900 selection:text-white">
+    <div className="min-h-screen bg-[#FAF8F5] text-[#181614] antialiased selection:bg-[#181614] selection:text-[#FAF8F5]">
       <Header />
       <main>
         <Hero />
-        <SpeakerReel />
         <About />
+        <SpeakerReel />
         <Services />
         <SpeakingTopics />
         <Feedback />
