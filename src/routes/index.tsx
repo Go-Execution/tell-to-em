@@ -1,11 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/site/Header";
 import { Hero } from "@/components/site/Hero";
-import { StatsBar } from "@/components/site/StatsBar";
+import { SpeakerReel } from "@/components/site/SpeakerReel";
 import { About } from "@/components/site/About";
 import { Services } from "@/components/site/Services";
 import { SpeakingTopics } from "@/components/site/SpeakingTopics";
-import { Impact } from "@/components/site/Impact";
 import { Feedback } from "@/components/site/Feedback";
 import { Faq } from "@/components/site/Faq";
 import { BookCall } from "@/components/site/BookCall";
@@ -14,17 +13,17 @@ import { Footer } from "@/components/site/Footer";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Talk2em LLC — Youth Empowerment, Public Speaking & Intervention" },
+      { title: "Brett Lasko — Youth Keynote Speaker & Intervention Specialist | Talk2em" },
       {
         name: "description",
         content:
-          "Talk2em LLC empowers middle school, high school, and community youth through motivational public speaking, youth intervention circles, and lived-experience mentorship. Founded by Brett Lasko.",
+          "Brett Lasko helps middle school, high school, and at-risk students make life-altering positive choices through lived-experience assemblies, keynote speaking, and intervention circles.",
       },
-      { property: "og:title", content: "Talk2em LLC — Talk That Inspires Real Change" },
+      { property: "og:title", content: "Brett Lasko — Talk That Inspires Real Change" },
       {
         property: "og:description",
         content:
-          "“Our Words, Your Wisdom” — Practical guidance, character development, and youth intervention for schools, alternative programs, and communities.",
+          "“Our Words, Your Wisdom” — Assemblies, small-group intervention, and workshops for schools and youth organizations.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -35,15 +34,14 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="min-h-screen bg-background text-foreground antialiased selection:bg-blue-100 selection:text-blue-900">
+    <div className="min-h-screen bg-white text-slate-900 antialiased selection:bg-slate-900 selection:text-white">
       <Header />
       <main>
         <Hero />
-        <StatsBar />
+        <SpeakerReel />
         <About />
         <Services />
         <SpeakingTopics />
-        <Impact />
         <Feedback />
         <Faq />
         <BookCall />

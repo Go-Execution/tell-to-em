@@ -1,138 +1,99 @@
-import { BookOpen, Target, Sparkles, Check, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Reveal } from "./Reveal";
 
 const TOPICS = [
   {
     number: "01",
     title: "The Power of the Next 5 Minutes",
-    subtitle: "Impulse Control, Emotional Regulation & Accountability",
+    focus: "Impulse Control, Emotional Regulation & Accountability",
     description:
-      "Most life-altering mistakes don't happen after weeks of calculation—they happen in a 5-minute flash of anger, peer pressure, or defiance. This session teaches students how to create space between trigger and reaction.",
-    takeaways: [
-      "The 'Pause Principle': How to break automatic defensive reactions",
-      "Understanding that feelings are temporary, but consequences are permanent",
-      "Developing emotional ownership rather than blaming external circumstances",
-    ],
-    tag: "Decision Making",
-    accent: "border-blue-200 bg-blue-50/50",
+      "Most life-altering mistakes don't happen after weeks of calculation—they happen in an impulsive 5-minute flash of anger, peer pressure, or defiance. Brett teaches students how to create space between emotional trigger and permanent consequence.",
+    outcomes:
+      "Teaches impulse pause, breaks automatic defensive reactions, and instills personal pride in taking the high road.",
   },
   {
     number: "02",
     title: "Who's In Your Circle?",
-    subtitle: "Peer Influence, Loyalty vs. Self-Sabotage & Real Brotherhood",
+    focus: "Peer Influence, True Loyalty vs. Self-Sabotage",
     description:
-      "Show me your friends, and I will show you your future. Brett challenges young people to re-examine the people they allow into their intimate circle, exposing the difference between real loyalty and mutual destruction.",
-    takeaways: [
-      "Spotting toxic loyalty: friends who push you toward trouble won't sit in the cell for you",
-      "How to set boundaries with childhood peers without inciting violence or disrespect",
-      "Finding mentors and friends who elevate your standard of character",
-    ],
-    tag: "Relationships",
-    accent: "border-amber-200 bg-amber-50/50",
+      "Show me your friends, and I will show you your future. Brett challenges young people to re-examine the company they keep, exposing the critical difference between friends who want the best for you and friends who just want company in bad decisions.",
+    outcomes:
+      "Helps students set healthy boundaries with peers, avoid toxic crowd dynamics, and seek positive mentorship.",
   },
   {
     number: "03",
     title: "Turning Adversity Into Armor",
-    subtitle: "Resilience, Overcoming Trauma & Refusing to Be a Statistic",
+    focus: "Resilience, Overcoming Trauma & Refusing to Be a Statistic",
     description:
-      "Many young people believe their background, socioeconomic status, or family trauma condemns them to repeat the cycle. This message turns hardship on its head—showing youth how to transform pain into an unbreakable foundation.",
-    takeaways: [
-      "Breaking generational cycles of incarceration, addiction, and apathy",
-      "Why hardship qualifies you to lead, rather than excuses you from trying",
-      "Reframing shame into strength and self-directed purpose",
-    ],
-    tag: "Resilience",
-    accent: "border-teal-200 bg-teal-50/50",
+      "Many teens believe family adversity, economic hardship, or past mistakes trap them in a cycle. Brett flips hardship on its head—showing youth how to transform pain and adversity into an unbreakable work ethic and purpose.",
+    outcomes:
+      "Breaks victim mindsets, reframes adversity as strength, and inspires long-term academic and personal ambition.",
   },
   {
     number: "04",
     title: "Owning Your Name",
-    subtitle: "Reputation, Digital Responsibility & Self-Respect",
+    focus: "Reputation, Digital Responsibility & Self-Respect",
     description:
-      "In a culture obsessed with viral validation and superficial clout, young people frequently sacrifice their long-term name for 15 seconds of online attention. This keynote rebuilds dignity and pride in one’s personal word.",
-    takeaways: [
-      "The permanency of social media posts, group chats, and digital footprints",
-      "What it means when people speak your name in rooms you haven't entered yet",
-      "Standing tall in self-respect even when standing alone",
-    ],
-    tag: "Character & Legacy",
-    accent: "border-indigo-200 bg-indigo-50/50",
+      "In a culture obsessed with viral validation, young people frequently sacrifice their long-term name for 15 seconds of online clout. This keynote restores dignity in personal character, online footprint, and self-respect.",
+    outcomes:
+      "Addresses social media drama, digital permanence, and standing tall with integrity even when standing alone.",
   },
 ];
 
 export function SpeakingTopics() {
   return (
-    <section id="topics" className="relative py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+    <section id="topics" className="relative py-24 sm:py-32 bg-white">
+      <div className="mx-auto max-w-7xl px-6 sm:px-8">
         <Reveal>
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-amber-800">
-              <BookOpen className="h-3.5 w-3.5" />
-              Curriculum &amp; Keynote Catalog
+          <div className="max-w-3xl">
+            <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+              Keynote Curriculum
             </span>
-            <h2 className="font-display mt-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
-              Signature Speaking <span className="text-gradient">Topics</span>
+            <h2 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl lg:text-5xl">
+              Signature Speaking Topics
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-slate-600 sm:text-lg">
-              Each keynote is delivered with raw honesty, gripping storytelling, and practical
-              psychological tools that students can remember long after the microphone is put away.
+            <p className="mt-4 text-base text-slate-600 sm:text-lg">
+              Each keynote is delivered with gripping personal stories, intense humor, and practical
+              psychological tools that students recall long after the event.
             </p>
           </div>
         </Reveal>
 
-        <div className="mt-14 grid gap-8 md:grid-cols-2">
+        {/* Clean Editorial List with Generous Whitespace */}
+        <div className="mt-16 divide-y divide-slate-200 border-y border-slate-200">
           {TOPICS.map((topic, i) => (
-            <Reveal key={topic.title} delay={i * 100}>
-              <div className="group relative flex h-full flex-col justify-between rounded-3xl border border-slate-200/90 bg-white p-7 sm:p-8 shadow-card transition-all duration-300 hover:border-slate-300 hover:shadow-card-hover">
-                <div>
-                  <div className="flex items-center justify-between border-b border-slate-100 pb-4">
-                    <span className="font-display text-2xl font-black text-slate-300 transition-colors group-hover:text-primary">
-                      {topic.number}
-                    </span>
-                    <span className="rounded-full bg-slate-100 px-3 py-1 text-[11px] font-bold text-slate-700 uppercase tracking-wide">
-                      {topic.tag}
-                    </span>
-                  </div>
-
-                  <h3 className="font-display mt-5 text-xl font-extrabold text-slate-900 group-hover:text-primary transition-colors sm:text-2xl">
-                    {topic.title}
-                  </h3>
-                  <p className="mt-1 text-xs font-bold text-slate-500 uppercase tracking-wider">
-                    {topic.subtitle}
-                  </p>
-
-                  <p className="mt-4 text-sm leading-relaxed text-slate-600">{topic.description}</p>
-
-                  {/* Bullet points */}
-                  <div className="mt-6 rounded-2xl bg-slate-50 p-4 border border-slate-100">
-                    <p className="text-xs font-bold uppercase tracking-wider text-slate-900">
-                      Core Objectives:
-                    </p>
-                    <ul className="mt-2.5 space-y-2">
-                      {topic.takeaways.map((takeaway) => (
-                        <li
-                          key={takeaway}
-                          className="flex items-start gap-2 text-xs text-slate-600"
-                        >
-                          <Check className="mt-0.5 h-3.5 w-3.5 text-primary shrink-0" />
-                          <span>{takeaway}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+            <Reveal key={topic.title} delay={i * 80}>
+              <div className="py-10 sm:py-12 grid gap-6 lg:grid-cols-12 lg:items-start">
+                <div className="lg:col-span-1">
+                  <span className="font-display text-2xl font-bold text-slate-400">
+                    {topic.number}
+                  </span>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
-                  <span className="text-xs font-semibold text-slate-500">
-                    Available for Assembly &amp; Workshop
-                  </span>
-                  <a
-                    href="#contact"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-blue-700 transition-colors"
-                  >
-                    <span>Request Topic</span>
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </a>
+                <div className="lg:col-span-5">
+                  <h3 className="font-display text-2xl font-bold text-slate-950">{topic.title}</h3>
+                  <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-slate-500">
+                    {topic.focus}
+                  </p>
+                </div>
+
+                <div className="lg:col-span-6">
+                  <p className="text-sm leading-relaxed text-slate-600 sm:text-base">
+                    {topic.description}
+                  </p>
+                  <p className="mt-3 text-xs text-slate-500">
+                    <strong className="font-semibold text-slate-700">Student Takeaway:</strong>{" "}
+                    {topic.outcomes}
+                  </p>
+                  <div className="mt-4">
+                    <a
+                      href="#contact"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-950 hover:underline"
+                    >
+                      <span>Inquire About This Topic</span>
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </a>
+                  </div>
                 </div>
               </div>
             </Reveal>

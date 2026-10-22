@@ -5,10 +5,9 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Talk2em LLC Bespoke Light Theme Design System.
- * Clean, authoritative editorial aesthetic with warm porcelain backdrop,
- * deep slate typography, energetic cobalt/indigo primary, fresh ocean teal,
- * and warm sunrise coral accents.
+ * Talk2em LLC — Modern Editorial Public Speaker Design System.
+ * Clean, minimalist, high-whitespace aesthetic inspired by top keynote speakers.
+ * High-contrast typography, crisp borders, restrained color palette.
  */
 
 @theme inline {
@@ -39,75 +38,43 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  /* Curated accent palette */
-  --color-cobalt: var(--cobalt);
-  --color-teal: var(--teal);
-  --color-amber: var(--amber);
-  --color-coral: var(--coral);
-  --color-indigo: var(--indigo);
-
   --font-display: "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-sans: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 :root {
-  --radius: 0.875rem;
+  --radius: 0.75rem;
 
-  /* Refined Light Theme Canvas */
-  --background: #fafafc;
-  --foreground: #0f172a;
+  /* Clean White Canvas */
+  --background: #ffffff;
+  --foreground: #111827;
   --card: #ffffff;
-  --card-foreground: #0f172a;
+  --card-foreground: #111827;
   --popover: #ffffff;
-  --popover-foreground: #0f172a;
+  --popover-foreground: #111827;
 
-  /* Primary: Bold Royal Indigo / Cobalt */
-  --primary: #2563eb;
+  /* Primary: Deep Midnight Navy / Black for commanding authority */
+  --primary: #0f172a;
   --primary-foreground: #ffffff;
 
-  /* Secondary: Soft Slate Tint */
-  --secondary: #f1f5f9;
-  --secondary-foreground: #1e293b;
-
-  /* Muted */
-  --muted: #f8fafc;
-  --muted-foreground: #64748b;
-
-  /* Accent: Warm Coral / Amber */
-  --accent: #ea580c;
+  /* Accent: Energetic Warm Amber / Cobalt */
+  --accent: #2563eb;
   --accent-foreground: #ffffff;
+
+  /* Secondary & Muted */
+  --secondary: #f8fafc;
+  --secondary-foreground: #1e293b;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
 
   /* Destructive */
   --destructive: #dc2626;
   --destructive-foreground: #ffffff;
 
-  /* Borders & Inputs */
+  /* Crisp, subtle borders */
   --border: #e2e8f0;
   --input: #e2e8f0;
-  --ring: #2563eb;
-
-  /* Identity Colors */
-  --cobalt: #1d4ed8;
-  --teal: #0d9488;
-  --amber: #d97706;
-  --coral: #ea580c;
-  --indigo: #4338ca;
-
-  /* Gradients & Shadows */
-  --gradient-brand: linear-gradient(135deg, #1d4ed8 0%, #2563eb 55%, #0d9488 100%);
-  --gradient-brand-subtle: linear-gradient(
-    135deg,
-    rgba(37, 99, 235, 0.08) 0%,
-    rgba(13, 148, 136, 0.08) 100%
-  );
-  --gradient-card: linear-gradient(180deg, #ffffff 0%, #fafafc 100%);
-  --gradient-warm: linear-gradient(135deg, #ea580c 0%, #d97706 100%);
-
-  --shadow-subtle: 0 1px 3px 0 rgba(15, 23, 42, 0.05), 0 1px 2px -1px rgba(15, 23, 42, 0.05);
-  --shadow-card: 0 10px 30px -10px rgba(15, 23, 42, 0.07), 0 4px 6px -2px rgba(15, 23, 42, 0.03);
-  --shadow-card-hover:
-    0 20px 40px -15px rgba(37, 99, 235, 0.12), 0 8px 12px -4px rgba(15, 23, 42, 0.04);
-  --shadow-glow: 0 10px 25px -5px rgba(37, 99, 235, 0.28);
+  --ring: #0f172a;
 }
 
 @layer base {
@@ -117,7 +84,7 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 5.5rem;
+    scroll-padding-top: 5rem;
     color-scheme: light;
   }
 
@@ -127,39 +94,6 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
   }
-}
-
-@utility text-gradient {
-  background: var(--gradient-brand);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-@utility text-gradient-warm {
-  background: var(--gradient-warm);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-@utility bg-brand-gradient {
-  background: var(--gradient-brand);
-}
-
-@utility bg-brand-subtle {
-  background: var(--gradient-brand-subtle);
-}
-
-@utility shadow-card {
-  box-shadow: var(--shadow-card);
-}
-
-@utility shadow-card-hover {
-  box-shadow: var(--shadow-card-hover);
-}
-
-@utility shadow-glow {
-  box-shadow: var(--shadow-glow);
 }
