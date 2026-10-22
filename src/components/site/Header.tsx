@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const NAV_LINKS = [
   { label: "About", href: "#story" },
@@ -30,17 +31,18 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 sm:px-10 gap-6">
-        {/* Brand */}
-        <a href="#home" className="shrink-0 flex items-center gap-3">
-          <span className="font-serif text-2xl font-bold tracking-tight text-[#181614]">
-            Brett Lasko
-          </span>
-          <span className="font-mono-label text-[10px] text-[#7A746B] bg-[#EFECE6] px-2 py-0.5 rounded tracking-widest uppercase">
-            Talk2em
-          </span>
+        {/* Brand Logo - text removed, official logo used */}
+        <a href="#home" className="shrink-0 flex items-center py-2">
+          <img
+            src={logo}
+            alt="Talk2em — Our Words, Your Wisdom"
+            className="h-12 w-auto object-contain sm:h-14"
+            width={160}
+            height={56}
+          />
         </a>
 
-        {/* Desktop Navigation - Concise, ample spacing, hides on medium to prevent collision */}
+        {/* Desktop Navigation */}
         <nav className="hidden xl:flex items-center gap-8 shrink-0" aria-label="Main Navigation">
           {NAV_LINKS.map((link) => (
             <a
