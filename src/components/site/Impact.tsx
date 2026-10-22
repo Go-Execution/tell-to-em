@@ -1,57 +1,113 @@
-import { Sparkles, ShieldCheck, Users } from "lucide-react";
+import {
+  Sparkles,
+  ShieldCheck,
+  HeartHandshake,
+  TrendingUp,
+  Quote,
+  CheckCircle2,
+} from "lucide-react";
 import { Reveal } from "./Reveal";
 
 const IMPACT_POINTS = [
   {
     icon: Sparkles,
-    title: "Inspire Confidence",
-    text: "Helping young people see their own worth and believe in what they can become.",
+    title: "Breakthrough Engagement",
+    subtitle: "Reaching the unreachable students",
+    text: "Principals and counselors consistently remark on how students who normally sleep through assemblies or resist authority are the very ones waiting in line to speak with Brett afterwards.",
+    accent: "text-blue-600 bg-blue-50 border-blue-200",
   },
   {
     icon: ShieldCheck,
-    title: "Encourage Positive Choices",
-    text: "Practical guidance that turns reflection into better decisions and direction.",
+    title: "Proactive Diversion",
+    subtitle: "Intervening before mistakes become criminal",
+    text: "By exposing the real-world trajectory of seemingly small missteps, Talk2em empowers youth to recognize destructive influences and make intentional course corrections in real time.",
+    accent: "text-teal-600 bg-teal-50 border-teal-200",
   },
   {
-    icon: Users,
-    title: "Strengthen Communities",
-    text: "Bringing families, schools, and organizations together around the next generation.",
+    icon: HeartHandshake,
+    title: "Rebuilding Trust With Adults",
+    subtitle: "Bridging the defensive barrier",
+    text: "We validate students' genuine struggles while simultaneously stripping away excuses, helping them see teachers, coaches, and parents as allies rather than adversaries.",
+    accent: "text-amber-600 bg-amber-50 border-amber-200",
+  },
+  {
+    icon: TrendingUp,
+    title: "Tangible School Climate Shift",
+    subtitle: "Equipping staff with shared language",
+    text: "Talk2em provides schools with key terminology and principles that educators, counselors, and deans can reference weeks and months after the presentation to reinforce positive behavior.",
+    accent: "text-indigo-600 bg-indigo-50 border-indigo-200",
   },
 ];
 
 export function Impact() {
   return (
-    <section className="relative overflow-hidden py-24 sm:py-32">
-      {/* Ambient background wash */}
-      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div className="absolute left-0 top-1/2 h-96 w-96 -translate-y-1/2 rounded-full bg-aqua/10 blur-[140px]" />
-        <div className="absolute right-0 top-1/2 h-96 w-96 -translate-y-1/2 rounded-full bg-pink/10 blur-[140px]" />
-      </div>
-
-      <div className="relative mx-auto max-w-6xl px-5 text-center sm:px-8">
+    <section id="impact" className="relative py-24 sm:py-32 bg-white">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <Reveal>
-          <h2 className="font-display mx-auto max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl">
-            One Conversation Can <span className="text-gradient">Change a Life</span>
-          </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            Sometimes all it takes is the right message at the right moment to shift a young
-            person’s mindset and future.
-          </p>
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-teal-200 bg-teal-50 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-teal-800">
+              <TrendingUp className="h-3.5 w-3.5" />
+              Community &amp; Behavioral Outcomes
+            </span>
+            <h2 className="font-display mt-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+              One Real Conversation Can <span className="text-gradient">Alter a Lifetime</span>
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-slate-600 sm:text-lg">
+              Talk2em doesn't leave students with a momentary high that fades by lunchtime. We
+              instill foundational self-respect and practical decision frameworks that echo
+              throughout their adolescent and adult years.
+            </p>
+          </div>
         </Reveal>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
+        {/* 4 Cards Grid */}
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {IMPACT_POINTS.map((point, i) => (
-            <Reveal key={point.title} delay={i * 120}>
-              <div className="h-full rounded-3xl border border-border bg-card/60 p-8 backdrop-blur transition-colors duration-300 hover:border-violet/40">
-                <span className="bg-brand-gradient inline-flex h-12 w-12 items-center justify-center rounded-2xl text-background shadow-glow">
-                  <point.icon className="h-5 w-5" aria-hidden="true" />
-                </span>
-                <h3 className="font-display mt-6 text-lg font-semibold">{point.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{point.text}</p>
+            <Reveal key={point.title} delay={i * 100}>
+              <div className="flex h-full flex-col justify-between rounded-3xl border border-slate-200/90 bg-slate-50/50 p-6 transition-all duration-300 hover:border-slate-300 hover:bg-white hover:shadow-card">
+                <div>
+                  <span
+                    className={`flex h-12 w-12 items-center justify-center rounded-2xl border font-bold ${point.accent}`}
+                  >
+                    <point.icon className="h-6 w-6" aria-hidden="true" />
+                  </span>
+                  <h3 className="font-display mt-5 text-lg font-bold text-slate-900">
+                    {point.title}
+                  </h3>
+                  <p className="mt-0.5 text-xs font-semibold text-primary">{point.subtitle}</p>
+                  <p className="mt-3 text-xs leading-relaxed text-slate-600 sm:text-sm">
+                    {point.text}
+                  </p>
+                </div>
+
+                <div className="mt-6 pt-4 border-t border-slate-200/60 flex items-center gap-1.5 text-xs font-medium text-slate-500">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-teal-600" />
+                  <span>Documented in follow-up feedback</span>
+                </div>
               </div>
             </Reveal>
           ))}
         </div>
+
+        {/* Quote banner */}
+        <Reveal delay={250}>
+          <div className="mt-14 rounded-3xl border border-slate-200/90 bg-slate-900 p-8 sm:p-12 text-white shadow-xl">
+            <div className="mx-auto max-w-4xl text-center">
+              <Quote className="mx-auto h-10 w-10 text-blue-400 opacity-60" />
+              <blockquote className="font-display mt-5 text-xl font-bold leading-relaxed sm:text-2xl lg:text-3xl">
+                “Our youth aren't broken—they are being tested by pressures no previous generation
+                ever had to face in the palm of their hands. When we respect their intelligence and
+                tell them the raw truth, they rise.”
+              </blockquote>
+              <div className="mt-6 flex flex-col items-center justify-center gap-1">
+                <span className="font-display text-base font-bold text-white">Brett Lasko</span>
+                <span className="text-xs uppercase tracking-wider text-slate-400">
+                  Founder &amp; Youth Speaker, Talk2em LLC
+                </span>
+              </div>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
