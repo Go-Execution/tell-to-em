@@ -2,46 +2,25 @@ import { Reveal } from "./Reveal";
 
 const PROGRAMS = [
   {
-    num: "I.",
-    title: "Student Assemblies & Campus Keynotes",
-    audience: "Middle & High School Student Bodies (Grades 6–12)",
-    duration: "45–60 Minutes + Live Student Q&A",
+    title: "Student Assemblies & Keynotes",
+    audience: "Middle & High School (Grades 6–12)",
+    duration: "45–60 Minutes",
     description:
-      "A high-impact, captivating presentation for whole auditoriums or grade-level cohorts. Brett commands the room through unfiltered storytelling, dismantling peer pressure and challenging students to make decisions they can look back on with pride.",
-    outcomes: [
-      "Understanding the permanence of impulsive choices",
-      "Overcoming toxic peer comparison and street pressure",
-      "Building authentic self-worth and character integrity",
-      "Cultivating respect for teachers, parents, and community",
-    ],
+      "Captivating whole-school presentations that dismantle toxic peer pressure, challenge impulse decisions, and inspire lasting self-respect.",
   },
   {
-    num: "II.",
     title: "Small-Group Intervention Circles",
-    audience: "Alternative Learning Centers, Diversion Programs & At-Risk Youth",
-    duration: "60–90 Minute Sessions (Single or Multi-Week Cohorts)",
+    audience: "Alternative Education & At-Risk Youth",
+    duration: "60–90 Minutes",
     description:
-      "Intimate, knee-to-knee discussions for youth on behavioral probation, disciplinary referral, or navigating severe family adversity. Provides an authentic, respectful space to defuse hostility and construct an actionable roadmap forward.",
-    outcomes: [
-      "De-escalating explosive anger and impulse reactions",
-      "Concrete strategies to resist negative crowd pressure",
-      "Restoring self-worth and personal ambition",
-      "Drafting an individual 30-day accountability contract",
-    ],
+      "Intimate knee-to-knee circles for adolescents navigating disciplinary probation, trauma, or conflict—focused on emotional control and personal ownership.",
   },
   {
-    num: "III.",
-    title: "Educator & Community Workshops",
-    audience: "Faculty, Counselors, Youth Mentors & Parent Associations",
-    duration: "60–90 Minute In-Service or Half-Day Staff Development",
+    title: "Educator & Staff Workshops",
+    audience: "Teachers, Counselors & Youth Mentors",
+    duration: "60–90 Minutes",
     description:
-      "Equips adults on the front lines with practical communication frameworks to connect with resistant, emotionally guarded teenagers. Learn what actually breaks through defensive teenage walls without lowering behavioral expectations.",
-    outcomes: [
-      "Decoding hidden cries for help beneath defiant behavior",
-      "De-escalation frameworks that prevent disciplinary blowups",
-      "Trauma-informed guidance without sacrificing standards",
-      "Creating unified school, home, and community mentorship networks",
-    ],
+      "Equips frontline adults with communication strategies to break through defensive teenage barriers without lowering behavioral expectations.",
   },
 ];
 
@@ -49,75 +28,39 @@ export function Services() {
   return (
     <section
       id="programs"
-      className="relative py-24 sm:py-32 border-b border-[#E8E4DC] bg-[#FAF8F5]"
+      className="relative py-20 sm:py-28 border-b border-[#E8E4DC] bg-[#FAF8F5]"
     >
-      <div className="mx-auto max-w-7xl px-6 sm:px-10">
+      <div className="mx-auto max-w-6xl px-6 sm:px-8">
         <Reveal>
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 pb-12 border-b border-[#E8E4DC]">
-            <div>
-              <span className="font-mono-label text-[11px] text-[#7A746B]">Program Formats</span>
-              <h2 className="font-serif mt-3 text-3xl sm:text-5xl font-normal text-[#181614]">
-                How Brett Partners With Your Campus
-              </h2>
-            </div>
-            <p className="max-w-md text-sm text-[#5A554E] leading-relaxed">
-              Programs can be scheduled as standalone keynotes or combined into full-day campus
-              residencies with assemblies and small-group circles.
-            </p>
+          <div className="max-w-xl">
+            <span className="font-mono-label text-xs text-[#7A746B]">Speaking Formats</span>
+            <h2 className="font-serif mt-2 text-3xl sm:text-4xl font-normal text-[#181614]">
+              Campus Programs
+            </h2>
           </div>
 
-          {/* Editorial Ledger Rows */}
-          <div className="divide-y divide-[#E8E4DC]">
-            {PROGRAMS.map((program) => (
-              <div
-                key={program.title}
-                className="py-12 sm:py-16 grid gap-8 lg:grid-cols-12 lg:items-start"
-              >
-                <div className="lg:col-span-1">
-                  <span className="font-serif text-2xl text-[#7A746B] italic font-normal">
-                    {program.num}
-                  </span>
-                </div>
-
-                <div className="lg:col-span-4">
-                  <h3 className="font-serif text-2xl sm:text-3xl font-medium text-[#181614]">
-                    {program.title}
+          <div className="mt-12 divide-y divide-[#E8E4DC] border-y border-[#E8E4DC]">
+            {PROGRAMS.map((item) => (
+              <div key={item.title} className="py-8 grid gap-4 sm:grid-cols-12 sm:items-baseline">
+                <div className="sm:col-span-4">
+                  <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#181614]">
+                    {item.title}
                   </h3>
-                  <div className="mt-4 space-y-1 text-xs font-mono-label text-[#7A746B]">
-                    <p>
-                      <strong className="text-[#181614]">Audience:</strong> {program.audience}
-                    </p>
-                    <p>
-                      <strong className="text-[#181614]">Format:</strong> {program.duration}
-                    </p>
-                  </div>
+                  <p className="font-mono-label text-[11px] text-[#7A746B] mt-1">
+                    {item.audience} • {item.duration}
+                  </p>
                 </div>
 
-                <div className="lg:col-span-7">
-                  <p className="text-base text-[#5A554E] leading-relaxed">{program.description}</p>
-
-                  <div className="mt-6 border-t border-[#E8E4DC]/70 pt-4">
-                    <p className="font-mono-label text-[11px] text-[#181614] mb-3">
-                      Expected Student &amp; Staff Takeaways:
-                    </p>
-                    <ul className="grid sm:grid-cols-2 gap-2 text-xs text-[#5A554E]">
-                      {program.outcomes.map((item) => (
-                        <li key={item} className="flex items-start gap-2">
-                          <span className="text-[#181614] mt-0.5">•</span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="mt-8">
-                    <a
-                      href="#inquire"
-                      className="font-mono-label text-xs font-bold text-[#181614] hover:underline"
-                    >
-                      Inquire About {program.title} →
-                    </a>
-                  </div>
+                <div className="sm:col-span-8 flex flex-col sm:flex-row sm:items-baseline justify-between gap-4">
+                  <p className="text-sm text-[#5A554E] max-w-lg leading-relaxed">
+                    {item.description}
+                  </p>
+                  <a
+                    href="#inquire"
+                    className="font-mono-label text-xs font-bold text-[#181614] hover:underline whitespace-nowrap"
+                  >
+                    Check Dates →
+                  </a>
                 </div>
               </div>
             ))}
