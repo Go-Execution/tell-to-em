@@ -1,36 +1,36 @@
 import { useState } from "react";
 import { Play, X } from "lucide-react";
-import heroImage from "@/assets/hero.jpg";
+import speakingStage from "@/assets/speaking-stage.jpg";
 import { Reveal } from "./Reveal";
 
 export function SpeakerReel() {
   const [openModal, setOpenModal] = useState(false);
 
   return (
-    <section id="reel" className="relative py-28 sm:py-36 bg-[#181614] text-[#FAF8F5]">
+    <section id="reel" className="relative py-24 sm:py-32 bg-[#181614] text-[#FAF8F5]">
       <div className="mx-auto max-w-6xl px-6 sm:px-10">
         <Reveal>
           <div className="text-center max-w-2xl mx-auto">
             <span className="font-mono-label text-xs text-[#A69F94]">Audio &amp; Visual Reel</span>
-            <h2 className="font-serif mt-3 text-3xl sm:text-5xl font-normal text-white">
+            <h2 className="font-serif mt-2 text-3xl sm:text-4xl font-normal text-white">
               Watch Brett in Action
             </h2>
-            <p className="mt-4 text-base text-[#A69F94] leading-relaxed">
+            <p className="mt-3 text-sm text-[#A69F94]">
               No podiums or rehearsed clichés. Just active presence, intense humor, and full student
               engagement.
             </p>
           </div>
 
           {/* Video Preview */}
-          <div className="mt-14 mx-auto max-w-4xl">
+          <div className="mt-12 mx-auto max-w-4xl">
             <div
               className="group relative aspect-video overflow-hidden border border-[#302D29] bg-black cursor-pointer shadow-2xl"
               onClick={() => setOpenModal(true)}
             >
               <img
-                src={heroImage}
+                src={speakingStage}
                 alt="Brett Lasko addressing student assembly"
-                className="h-full w-full object-cover opacity-60 transition-transform duration-500 group-hover:scale-105"
+                className="h-full w-full object-cover opacity-65 transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 flex flex-col items-center justify-center">
                 <button
