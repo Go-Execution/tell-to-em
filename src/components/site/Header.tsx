@@ -30,13 +30,13 @@ export function Header() {
           : "border-b border-[#E8E4DC]/80 bg-[#FAF8F5]"
       }`}
     >
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 sm:px-10 gap-6">
+      <div className="mx-auto flex h-auto max-w-7xl items-center justify-between px-6 sm:px-10 gap-6">
         {/* Brand Logo - text removed, official logo used */}
         <a href="#home" className="shrink-0 flex items-center py-2">
           <img
             src={logo}
             alt="Talk2em — Our Words, Your Wisdom"
-            className="h-12 w-auto object-contain sm:h-14"
+            className="h-[150px] w-auto object-contain sm:h-[180px]"
             width={160}
             height={56}
           />

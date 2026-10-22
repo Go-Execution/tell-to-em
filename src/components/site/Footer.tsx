@@ -14,7 +14,7 @@ export function Footer() {
             <img
               src={logo}
               alt="Talk2em — Our Words, Your Wisdom"
-              className="h-14 w-auto object-contain sm:h-16"
+              className="h-[180px] w-auto object-contain sm:h-[200px]"
               width={180}
               height={64}
             />
