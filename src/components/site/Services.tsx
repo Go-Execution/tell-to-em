@@ -28,36 +28,37 @@ export function Services() {
   return (
     <section
       id="programs"
-      className="relative py-20 sm:py-28 border-b border-[#E8E4DC] bg-[#FAF8F5]"
+      className="relative py-28 sm:py-36 border-b border-[#E8E4DC] bg-[#FAF8F5]"
     >
-      <div className="mx-auto max-w-6xl px-6 sm:px-8">
+      <div className="mx-auto max-w-6xl px-6 sm:px-10">
         <Reveal>
           <div className="max-w-xl">
             <span className="font-mono-label text-xs text-[#7A746B]">Speaking Formats</span>
-            <h2 className="font-serif mt-2 text-3xl sm:text-4xl font-normal text-[#181614]">
+            <h2 className="font-serif mt-3 text-3xl sm:text-5xl font-normal text-[#181614]">
               Campus Programs
             </h2>
           </div>
 
-          <div className="mt-12 divide-y divide-[#E8E4DC] border-y border-[#E8E4DC]">
+          <div className="mt-16 divide-y divide-[#E8E4DC] border-y border-[#E8E4DC]">
             {PROGRAMS.map((item) => (
-              <div key={item.title} className="py-8 grid gap-4 sm:grid-cols-12 sm:items-baseline">
-                <div className="sm:col-span-4">
-                  <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#181614]">
-                    {item.title}
-                  </h3>
-                  <p className="font-mono-label text-[11px] text-[#7A746B] mt-1">
+              <div
+                key={item.title}
+                className="py-12 sm:py-14 grid gap-6 sm:grid-cols-12 sm:items-baseline"
+              >
+                <div className="sm:col-span-5">
+                  <h3 className="font-serif text-2xl font-medium text-[#181614]">{item.title}</h3>
+                  <p className="font-mono-label text-xs text-[#7A746B] mt-2">
                     {item.audience} • {item.duration}
                   </p>
                 </div>
 
-                <div className="sm:col-span-8 flex flex-col sm:flex-row sm:items-baseline justify-between gap-4">
-                  <p className="text-sm text-[#5A554E] max-w-lg leading-relaxed">
+                <div className="sm:col-span-7 flex flex-col sm:flex-row sm:items-baseline justify-between gap-6">
+                  <p className="text-base text-[#5A554E] max-w-md leading-relaxed">
                     {item.description}
                   </p>
                   <a
                     href="#inquire"
-                    className="font-mono-label text-xs font-bold text-[#181614] hover:underline whitespace-nowrap"
+                    className="font-mono-label text-xs font-bold text-[#181614] hover:underline whitespace-nowrap shrink-0"
                   >
                     Check Dates →
                   </a>

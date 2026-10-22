@@ -19,27 +19,27 @@ export function Feedback() {
   return (
     <section
       id="endorsements"
-      className="relative py-20 sm:py-28 border-b border-[#E8E4DC] bg-[#FAF8F5]"
+      className="relative py-28 sm:py-36 border-b border-[#E8E4DC] bg-[#FAF8F5]"
     >
-      <div className="mx-auto max-w-6xl px-6 sm:px-8">
+      <div className="mx-auto max-w-6xl px-6 sm:px-10">
         <Reveal>
           <span className="font-mono-label text-xs text-[#7A746B]">From Administrators</span>
-          <h2 className="font-serif mt-2 text-3xl sm:text-4xl font-normal text-[#181614]">
+          <h2 className="font-serif mt-3 text-3xl sm:text-5xl font-normal text-[#181614]">
             Endorsements
           </h2>
 
-          <div className="mt-12 grid gap-10 sm:grid-cols-2">
+          <div className="mt-16 grid gap-14 sm:grid-cols-2">
             {ENDORSEMENTS.map((item) => (
               <div
                 key={item.name}
-                className="border-t border-[#181614] pt-6 flex flex-col justify-between"
+                className="border-t border-[#181614] pt-8 flex flex-col justify-between"
               >
-                <blockquote className="font-serif text-xl sm:text-2xl font-normal text-[#181614] leading-snug italic">
+                <blockquote className="font-serif text-2xl sm:text-3xl font-normal text-[#181614] leading-snug italic">
                   “{item.quote}”
                 </blockquote>
-                <div className="mt-6 pt-4 border-t border-[#E8E4DC]">
-                  <p className="font-serif text-base font-bold text-[#181614]">{item.name}</p>
-                  <p className="font-mono-label text-xs text-[#7A746B] mt-0.5">{item.role}</p>
+                <div className="mt-8 pt-6 border-t border-[#E8E4DC]">
+                  <p className="font-serif text-lg font-bold text-[#181614]">{item.name}</p>
+                  <p className="font-mono-label text-xs text-[#7A746B] mt-1">{item.role}</p>
                 </div>
               </div>
             ))}

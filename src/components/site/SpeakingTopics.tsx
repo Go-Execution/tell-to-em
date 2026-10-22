@@ -33,32 +33,32 @@ const TOPICS = [
 
 export function SpeakingTopics() {
   return (
-    <section id="topics" className="relative py-20 sm:py-28 border-b border-[#E8E4DC] bg-[#FAF8F5]">
-      <div className="mx-auto max-w-6xl px-6 sm:px-8">
+    <section id="topics" className="relative py-28 sm:py-36 border-b border-[#E8E4DC] bg-[#FAF8F5]">
+      <div className="mx-auto max-w-6xl px-6 sm:px-10">
         <Reveal>
           <div className="max-w-xl">
             <span className="font-mono-label text-xs text-[#7A746B]">Curriculum</span>
-            <h2 className="font-serif mt-2 text-3xl sm:text-4xl font-normal text-[#181614]">
+            <h2 className="font-serif mt-3 text-3xl sm:text-5xl font-normal text-[#181614]">
               Keynote Topics
             </h2>
           </div>
 
-          <div className="mt-12 grid gap-8 sm:grid-cols-2">
+          <div className="mt-16 grid gap-12 sm:grid-cols-2">
             {TOPICS.map((topic) => (
               <div
                 key={topic.title}
-                className="border-t border-[#181614] pt-6 flex flex-col justify-between"
+                className="border-t border-[#181614] pt-8 flex flex-col justify-between"
               >
                 <div>
                   <span className="font-mono-label text-xs text-[#7A746B]">
                     {topic.num} • {topic.focus}
                   </span>
-                  <h3 className="font-serif text-2xl font-medium text-[#181614] mt-2">
+                  <h3 className="font-serif text-2xl sm:text-3xl font-medium text-[#181614] mt-3">
                     {topic.title}
                   </h3>
-                  <p className="mt-3 text-sm text-[#5A554E] leading-relaxed">{topic.summary}</p>
+                  <p className="mt-4 text-base text-[#5A554E] leading-relaxed">{topic.summary}</p>
                 </div>
-                <div className="mt-6">
+                <div className="mt-8">
                   <a
                     href="#inquire"
                     className="font-mono-label text-xs font-bold text-[#181614] hover:underline"

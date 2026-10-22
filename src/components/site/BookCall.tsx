@@ -18,31 +18,31 @@ export function BookCall() {
   };
 
   return (
-    <section id="inquire" className="relative py-20 sm:py-28 bg-[#FAF8F5]">
-      <div className="mx-auto max-w-6xl px-6 sm:px-8">
+    <section id="inquire" className="relative py-28 sm:py-36 bg-[#FAF8F5]">
+      <div className="mx-auto max-w-6xl px-6 sm:px-10">
         <Reveal>
-          <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
+          <div className="grid gap-16 lg:grid-cols-12 lg:items-start lg:gap-24">
             {/* Direct Info (5 cols) */}
             <div className="lg:col-span-5">
               <span className="font-mono-label text-xs text-[#7A746B]">
                 Scheduling &amp; Inquiries
               </span>
-              <h2 className="font-serif mt-2 text-3xl sm:text-4xl font-normal text-[#181614]">
+              <h2 className="font-serif mt-3 text-3xl sm:text-5xl font-normal text-[#181614]">
                 Book Brett for Your Campus
               </h2>
-              <p className="mt-4 text-sm text-[#5A554E] leading-relaxed">
+              <p className="mt-6 text-base text-[#5A554E] leading-relaxed">
                 To reserve dates, receive fee details, or discuss an assembly, submit your inquiry
                 or reach out directly.
               </p>
 
-              <div className="mt-8 space-y-4 border-t border-[#E8E4DC] pt-6 text-sm">
+              <div className="mt-12 space-y-6 border-t border-[#E8E4DC] pt-8 text-sm">
                 <div>
                   <span className="font-mono-label text-[10px] text-[#7A746B]">
-                    Phone (Call / Text)
+                    Direct Phone (Call / Text)
                   </span>
                   <a
                     href="tel:+15152384806"
-                    className="block font-serif text-xl text-[#181614] hover:underline mt-0.5"
+                    className="block font-serif text-2xl text-[#181614] hover:underline mt-1"
                   >
                     515.238.4806
                   </a>
@@ -51,14 +51,14 @@ export function BookCall() {
                   <span className="font-mono-label text-[10px] text-[#7A746B]">Direct Email</span>
                   <a
                     href="mailto:brett.lasko@icloud.com"
-                    className="block font-mono text-xs text-[#181614] hover:underline mt-0.5"
+                    className="block font-mono text-xs text-[#181614] hover:underline mt-1"
                   >
                     brett.lasko@icloud.com
                   </a>
                 </div>
                 <div>
                   <span className="font-mono-label text-[10px] text-[#7A746B]">Base Location</span>
-                  <p className="font-serif text-sm text-[#181614] mt-0.5">
+                  <p className="font-serif text-base text-[#181614] mt-1">
                     Des Moines, Iowa • Available Nationwide
                   </p>
                 </div>
@@ -67,13 +67,13 @@ export function BookCall() {
 
             {/* Simple Clean Form (7 cols) */}
             <div className="lg:col-span-7">
-              <div className="border border-[#181614] bg-white p-6 sm:p-8">
+              <div className="border border-[#181614] bg-white p-8 sm:p-12 shadow-sm">
                 {submitted ? (
-                  <div className="py-8 text-center">
-                    <h3 className="font-serif text-2xl font-normal text-[#181614]">
+                  <div className="py-12 text-center">
+                    <h3 className="font-serif text-3xl font-normal text-[#181614]">
                       Inquiry Received
                     </h3>
-                    <p className="mt-2 text-sm text-[#5A554E]">
+                    <p className="mt-3 text-base text-[#5A554E]">
                       Thank you, {form.name}. Brett will follow up with availability within 24
                       hours.
                     </p>
@@ -83,13 +83,13 @@ export function BookCall() {
                         setSubmitted(false);
                         setForm({ name: "", org: "", contact: "", message: "" });
                       }}
-                      className="mt-6 font-mono-label text-xs underline text-[#181614]"
+                      className="mt-8 font-mono-label text-xs underline text-[#181614]"
                     >
                       Send Another Note
                     </button>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4">
+                  <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
                       <label className="block font-mono-label text-[10px] text-[#181614]">
                         Your Name *
@@ -99,7 +99,7 @@ export function BookCall() {
                         value={form.name}
                         onChange={(e) => setForm({ ...form, name: e.target.value })}
                         placeholder="Principal or Coordinator Name"
-                        className="mt-1 w-full border-b border-[#181614] bg-transparent py-2 text-sm text-[#181614] placeholder:text-[#A69F94] outline-none"
+                        className="mt-2 w-full border-b border-[#181614] bg-transparent py-3 text-base text-[#181614] placeholder:text-[#A69F94] outline-none"
                       />
                     </div>
 
@@ -111,7 +111,7 @@ export function BookCall() {
                         value={form.org}
                         onChange={(e) => setForm({ ...form, org: e.target.value })}
                         placeholder="School Name"
-                        className="mt-1 w-full border-b border-[#181614] bg-transparent py-2 text-sm text-[#181614] placeholder:text-[#A69F94] outline-none"
+                        className="mt-2 w-full border-b border-[#181614] bg-transparent py-3 text-base text-[#181614] placeholder:text-[#A69F94] outline-none"
                       />
                     </div>
 
@@ -124,7 +124,7 @@ export function BookCall() {
                         value={form.contact}
                         onChange={(e) => setForm({ ...form, contact: e.target.value })}
                         placeholder="email@school.edu or (515) 000-0000"
-                        className="mt-1 w-full border-b border-[#181614] bg-transparent py-2 text-sm text-[#181614] placeholder:text-[#A69F94] outline-none"
+                        className="mt-2 w-full border-b border-[#181614] bg-transparent py-3 text-base text-[#181614] placeholder:text-[#A69F94] outline-none"
                       />
                     </div>
 
@@ -137,16 +137,18 @@ export function BookCall() {
                         value={form.message}
                         onChange={(e) => setForm({ ...form, message: e.target.value })}
                         placeholder="Tentative event date, grade levels, or student topics..."
-                        className="mt-1 w-full border-b border-[#181614] bg-transparent py-2 text-sm text-[#181614] placeholder:text-[#A69F94] outline-none resize-none"
+                        className="mt-2 w-full border-b border-[#181614] bg-transparent py-3 text-base text-[#181614] placeholder:text-[#A69F94] outline-none resize-none"
                       />
                     </div>
 
-                    <button
-                      type="submit"
-                      className="mt-4 w-full bg-[#181614] py-3.5 text-xs font-bold uppercase tracking-widest text-[#FAF8F5] hover:bg-black transition-colors"
-                    >
-                      Request Availability &amp; Quote
-                    </button>
+                    <div className="pt-4">
+                      <button
+                        type="submit"
+                        className="w-full bg-[#181614] py-4 text-xs font-bold uppercase tracking-widest text-[#FAF8F5] hover:bg-black transition-colors"
+                      >
+                        Request Availability &amp; Quote
+                      </button>
+                    </div>
                   </form>
                 )}
               </div>
