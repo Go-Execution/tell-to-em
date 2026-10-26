@@ -67,15 +67,23 @@ function AdminPortalPage() {
   const [activeTab, setActiveTab] = useState<TabType>("programs");
   const [notification, setNotification] = useState<string | null>(null);
 
+  const configuredPassword = (import.meta.env.VITE_ADMIN_PASSWORD || "tok2em2026").trim();
+
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    const validPasswords = ["tok2em2026", "tok2em", "admin123", "admin"];
+    const validPasswords = [
+      configuredPassword.toLowerCase(),
+      "tok2em2026",
+      "tok2em",
+      "admin123",
+      "admin",
+    ];
     if (validPasswords.includes(passwordInput.trim().toLowerCase())) {
       sessionStorage.setItem("tok2em_admin_auth", "true");
       setIsAuthenticated(true);
       setAuthError("");
     } else {
-      setAuthError("Incorrect password. Please try again (hint: tok2em2026).");
+      setAuthError("Incorrect password. Please try again.");
     }
   };
 
@@ -263,7 +271,7 @@ function AdminPortalPage() {
             <p className="text-[11px] text-[#7A746B]">
               Client Demo Access Code:{" "}
               <code className="bg-[#FAF8F5] border border-[#E0DBCF] px-1.5 py-0.5 rounded text-[#181614] font-mono font-bold">
-                tok2em2026
+                {configuredPassword}
               </code>
             </p>
             <a
