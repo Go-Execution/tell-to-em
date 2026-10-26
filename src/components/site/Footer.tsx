@@ -13,7 +13,7 @@ export function Footer() {
           <a href="#home" className="shrink-0">
             <img
               src={logo}
-              alt="Talk2em — Our Words, Your Wisdom"
+              alt="TOK2EM — Our Words, Your Wisdom"
               className="h-[180px] w-auto object-contain sm:h-[200px]"
               width={180}
               height={64}
@@ -35,7 +35,7 @@ export function Footer() {
         </div>
 
         <div className="pt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono-label text-[#7A746B]">
-          <p>© {new Date().getFullYear()} Talk2em LLC. All Rights Reserved.</p>
+          <p>© {new Date().getFullYear()} TOK2EM LLC. All Rights Reserved.</p>
           <button
             type="button"
             onClick={scrollToTop}

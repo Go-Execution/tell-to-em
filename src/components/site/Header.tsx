@@ -35,7 +35,7 @@ export function Header() {
         <a href="#home" className="shrink-0 flex items-center py-2">
           <img
             src={logo}
-            alt="Talk2em — Our Words, Your Wisdom"
+            alt="TOK2EM — Our Words, Your Wisdom"
             className="h-[150px] w-auto object-contain sm:h-[180px]"
             width={160}
             height={56}

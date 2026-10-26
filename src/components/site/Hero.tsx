@@ -3,7 +3,10 @@ import { Reveal } from "./Reveal";
 
 export function Hero() {
   return (
-    <section id="home" className="relative pt-[180px] pb-20 sm:pt-[250px] sm:pb-28 border-b border-[#E8E4DC]">
+    <section
+      id="home"
+      className="relative pt-[180px] pb-20 sm:pt-[250px] sm:pb-28 border-b border-[#E8E4DC]"
+    >
       <div className="mx-auto max-w-6xl px-6 sm:px-10">
         <Reveal>
           <div className="flex items-center gap-2">

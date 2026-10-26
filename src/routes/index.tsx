@@ -13,7 +13,7 @@ import { Footer } from "@/components/site/Footer";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Brett Lasko — Talk2em | Youth Keynote Speaker & Intervention" },
+      { title: "Brett Lasko — TOK2EM | Youth Keynote Speaker & Intervention" },
       {
         name: "description",
         content:
