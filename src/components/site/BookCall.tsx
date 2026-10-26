@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { Reveal } from "./Reveal";
+import { submitInquiry } from "@/lib/cms-client";
 
 export function BookCall() {
   const [form, setForm] = useState({
@@ -13,6 +14,13 @@ export function BookCall() {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (form.name && form.contact) {
+      submitInquiry({
+        contact_name: form.name,
+        school_name: form.org || "Unspecified School",
+        email: form.contact.includes("@") ? form.contact : "",
+        phone: !form.contact.includes("@") ? form.contact : "",
+        notes: form.message,
+      });
       setSubmitted(true);
     }
   };

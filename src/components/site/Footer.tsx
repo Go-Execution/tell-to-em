@@ -35,7 +35,30 @@ export function Footer() {
         </div>
 
         <div className="pt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono-label text-[#7A746B]">
-          <p>© {new Date().getFullYear()} TOK2EM LLC. All Rights Reserved.</p>
+          <div className="flex flex-wrap items-center gap-4">
+            <p>© {new Date().getFullYear()} TOK2EM LLC. All Rights Reserved.</p>
+            <span>•</span>
+            <a
+              href="/privacy-policy"
+              className="hover:text-[#181614] transition-colors underline-offset-4 hover:underline"
+            >
+              Privacy Policy
+            </a>
+            <span>•</span>
+            <a
+              href="/terms-of-service"
+              className="hover:text-[#181614] transition-colors underline-offset-4 hover:underline"
+            >
+              Terms of Service
+            </a>
+            <span>•</span>
+            <a
+              href="/admin"
+              className="hover:text-[#181614] transition-colors opacity-70 hover:opacity-100"
+            >
+              Admin Portal
+            </a>
+          </div>
           <button
             type="button"
             onClick={scrollToTop}
