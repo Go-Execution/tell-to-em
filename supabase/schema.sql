@@ -97,23 +97,33 @@ ALTER TABLE public.legal_pages ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.site_settings ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.inquiries ENABLE ROW LEVEL SECURITY;
 
--- Public READ access for published website content
-CREATE POLICY "Public can read active programs" ON public.programs FOR SELECT USING (is_active = true);
-CREATE POLICY "Public can read published faqs" ON public.faqs FOR SELECT USING (is_published = true);
-CREATE POLICY "Public can read approved testimonials" ON public.testimonials FOR SELECT USING (is_approved = true);
-CREATE POLICY "Public can read legal pages" ON public.legal_pages FOR SELECT USING (true);
-CREATE POLICY "Public can read site settings" ON public.site_settings FOR SELECT USING (true);
+-- Drop previous policies if they exist (for idempotent runs)
+DROP POLICY IF EXISTS "Public full access to programs" ON public.programs;
+DROP POLICY IF EXISTS "Public full access to faqs" ON public.faqs;
+DROP POLICY IF EXISTS "Public full access to testimonials" ON public.testimonials;
+DROP POLICY IF EXISTS "Public full access to legal pages" ON public.legal_pages;
+DROP POLICY IF EXISTS "Public full access to site settings" ON public.site_settings;
+DROP POLICY IF EXISTS "Public full access to inquiries" ON public.inquiries;
+DROP POLICY IF EXISTS "Public can read active programs" ON public.programs;
+DROP POLICY IF EXISTS "Public can read published faqs" ON public.faqs;
+DROP POLICY IF EXISTS "Public can read approved testimonials" ON public.testimonials;
+DROP POLICY IF EXISTS "Public can read legal pages" ON public.legal_pages;
+DROP POLICY IF EXISTS "Public can read site settings" ON public.site_settings;
+DROP POLICY IF EXISTS "Public can submit inquiries" ON public.inquiries;
+DROP POLICY IF EXISTS "Admins have full access to programs" ON public.programs;
+DROP POLICY IF EXISTS "Admins have full access to faqs" ON public.faqs;
+DROP POLICY IF EXISTS "Admins have full access to testimonials" ON public.testimonials;
+DROP POLICY IF EXISTS "Admins have full access to legal pages" ON public.legal_pages;
+DROP POLICY IF EXISTS "Admins have full access to site settings" ON public.site_settings;
+DROP POLICY IF EXISTS "Admins have full access to inquiries" ON public.inquiries;
 
--- Public INSERT for inquiries (Book a call form)
-CREATE POLICY "Public can submit inquiries" ON public.inquiries FOR INSERT WITH CHECK (true);
-
--- Authenticated Users (Admin) full access
-CREATE POLICY "Admins have full access to programs" ON public.programs FOR ALL TO authenticated USING (true) WITH CHECK (true);
-CREATE POLICY "Admins have full access to faqs" ON public.faqs FOR ALL TO authenticated USING (true) WITH CHECK (true);
-CREATE POLICY "Admins have full access to testimonials" ON public.testimonials FOR ALL TO authenticated USING (true) WITH CHECK (true);
-CREATE POLICY "Admins have full access to legal pages" ON public.legal_pages FOR ALL TO authenticated USING (true) WITH CHECK (true);
-CREATE POLICY "Admins have full access to site settings" ON public.site_settings FOR ALL TO authenticated USING (true) WITH CHECK (true);
-CREATE POLICY "Admins have full access to inquiries" ON public.inquiries FOR ALL TO authenticated USING (true) WITH CHECK (true);
+-- Allow anon & authenticated full access for the single-password client preview phase
+CREATE POLICY "Public full access to programs" ON public.programs FOR ALL TO anon, authenticated USING (true) WITH CHECK (true);
+CREATE POLICY "Public full access to faqs" ON public.faqs FOR ALL TO anon, authenticated USING (true) WITH CHECK (true);
+CREATE POLICY "Public full access to testimonials" ON public.testimonials FOR ALL TO anon, authenticated USING (true) WITH CHECK (true);
+CREATE POLICY "Public full access to legal pages" ON public.legal_pages FOR ALL TO anon, authenticated USING (true) WITH CHECK (true);
+CREATE POLICY "Public full access to site settings" ON public.site_settings FOR ALL TO anon, authenticated USING (true) WITH CHECK (true);
+CREATE POLICY "Public full access to inquiries" ON public.inquiries FOR ALL TO anon, authenticated USING (true) WITH CHECK (true);
 
 -- ==============================================================================
 -- INITIAL SEED DATA (Pre-populating current website content)

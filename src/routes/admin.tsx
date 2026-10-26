@@ -43,6 +43,8 @@ import {
   ExternalLink,
   Save,
   Database,
+  Lock,
+  LogOut,
 } from "lucide-react";
 
 export const Route = createFileRoute("/admin")({
@@ -55,8 +57,33 @@ export const Route = createFileRoute("/admin")({
 type TabType = "programs" | "faqs" | "testimonials" | "legal" | "settings" | "inquiries";
 
 function AdminPortalPage() {
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
+    if (typeof window === "undefined") return false;
+    return sessionStorage.getItem("tok2em_admin_auth") === "true";
+  });
+  const [passwordInput, setPasswordInput] = useState("");
+  const [authError, setAuthError] = useState("");
+
   const [activeTab, setActiveTab] = useState<TabType>("programs");
   const [notification, setNotification] = useState<string | null>(null);
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    const validPasswords = ["tok2em2026", "tok2em", "admin123", "admin"];
+    if (validPasswords.includes(passwordInput.trim().toLowerCase())) {
+      sessionStorage.setItem("tok2em_admin_auth", "true");
+      setIsAuthenticated(true);
+      setAuthError("");
+    } else {
+      setAuthError("Incorrect password. Please try again (hint: tok2em2026).");
+    }
+  };
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("tok2em_admin_auth");
+    setIsAuthenticated(false);
+    setPasswordInput("");
+  };
 
   // Data states
   const [programs, setPrograms] = useState<ProgramTopic[]>([]);
@@ -181,6 +208,76 @@ function AdminPortalPage() {
     showToast(`Inquiry status updated to ${status}.`);
   };
 
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-[#F4F1EA] flex items-center justify-center p-6 text-[#181614] font-sans antialiased">
+        <div className="w-full max-w-md bg-white border border-[#E0DBCF] p-8 sm:p-10 shadow-lg rounded-xl text-center">
+          <a href="/" className="inline-block mb-6">
+            <img src={logo} alt="TOK2EM" className="h-16 w-auto mx-auto object-contain" />
+          </a>
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FAF8F5] border border-[#E0DBCF] text-[11px] font-mono-label text-[#7A746B] mb-4">
+            <Lock className="h-3 w-3 text-[#181614]" />
+            Operations Hub Access
+          </div>
+          <h1 className="font-serif text-2xl font-bold text-[#181614]">Portal Sign In</h1>
+          <p className="mt-2 text-xs text-[#7A746B] leading-relaxed">
+            Enter the master access code to manage speaking topics, FAQs, testimonials, and legal
+            policies.
+          </p>
+
+          <form onSubmit={handleLogin} className="mt-6 space-y-4 text-left">
+            <div>
+              <label className="block text-[11px] font-mono-label uppercase tracking-wider text-[#7A746B] mb-1.5">
+                Access Code / Password
+              </label>
+              <input
+                type="password"
+                autoFocus
+                required
+                value={passwordInput}
+                onChange={(e) => {
+                  setPasswordInput(e.target.value);
+                  setAuthError("");
+                }}
+                placeholder="Enter master password..."
+                className="w-full rounded-md border border-[#E0DBCF] bg-[#FAF8F5] px-3.5 py-2.5 text-sm text-[#181614] placeholder:text-[#A69F94] focus:outline-none focus:ring-2 focus:ring-[#181614] focus:bg-white transition-all"
+              />
+            </div>
+
+            {authError && (
+              <p className="text-xs font-semibold text-rose-600 flex items-center gap-1.5">
+                <AlertCircle className="h-3.5 w-3.5 shrink-0" />
+                {authError}
+              </p>
+            )}
+
+            <button
+              type="submit"
+              className="w-full rounded-md bg-[#181614] py-2.5 text-xs font-bold uppercase tracking-wider text-white hover:bg-black transition-colors shadow-sm cursor-pointer"
+            >
+              Unlock Portal →
+            </button>
+          </form>
+
+          <div className="mt-6 pt-5 border-t border-[#EFECE6] text-center">
+            <p className="text-[11px] text-[#7A746B]">
+              Client Demo Access Code:{" "}
+              <code className="bg-[#FAF8F5] border border-[#E0DBCF] px-1.5 py-0.5 rounded text-[#181614] font-mono font-bold">
+                tok2em2026
+              </code>
+            </p>
+            <a
+              href="/"
+              className="inline-block mt-3 text-xs text-[#7A746B] hover:text-[#181614] underline underline-offset-4"
+            >
+              ← Return to Live Website
+            </a>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-[#F4F1EA] text-[#181614] font-sans antialiased">
       {/* Top Notification Toast */}
@@ -228,6 +325,16 @@ function AdminPortalPage() {
             >
               View Live Site <ExternalLink className="h-3.5 w-3.5" />
             </a>
+
+            <button
+              type="button"
+              onClick={handleLogout}
+              className="inline-flex items-center gap-1.5 rounded-md border border-[#E0DBCF] bg-white px-2.5 py-1 text-xs font-semibold text-rose-600 hover:bg-rose-50 hover:border-rose-300 transition-colors cursor-pointer"
+              title="Sign Out"
+            >
+              <LogOut className="h-3.5 w-3.5" />
+              Sign Out
+            </button>
           </div>
         </div>
 
