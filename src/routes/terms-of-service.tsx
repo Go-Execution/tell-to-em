@@ -47,16 +47,18 @@ function TermsOfServicePage() {
               )}
             </div>
 
-            <a
-              href="/terms-and-conditions.pdf"
-              download="Talk2Em LLC _ Website Terms and Conditions.pdf"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-[#181614] bg-white px-4 py-2 text-xs font-mono-label font-bold uppercase tracking-wider text-[#181614] hover:bg-[#181614] hover:text-white transition-colors shrink-0"
-            >
-              <Download className="h-3.5 w-3.5" />
-              Download Official PDF
-            </a>
+            <div className="flex items-center gap-2 shrink-0">
+              <a
+                href="/TOK2EM_Terms_and_Conditions.docx"
+                download="TOK2EM_Terms_and_Conditions.docx"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-[#181614] bg-white px-4 py-2 text-xs font-mono-label font-bold uppercase tracking-wider text-[#181614] hover:bg-[#181614] hover:text-white transition-colors"
+              >
+                <Download className="h-3.5 w-3.5" />
+                Download Document (.docx)
+              </a>
+            </div>
           </div>
 
           {page?.content_html ? (

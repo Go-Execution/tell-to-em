@@ -132,22 +132,22 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="/privacy-policy.pdf"
+                  href="/TOK2EM_Privacy_Policy.docx"
                   target="_blank"
                   rel="noreferrer"
                   className="text-[#7A746B] hover:text-[#181614] transition-colors text-[11px] font-mono-label flex items-center gap-1"
                 >
-                  Privacy PDF <ArrowUpRight className="h-2.5 w-2.5" />
+                  Privacy Doc (.docx) <ArrowUpRight className="h-2.5 w-2.5" />
                 </a>
               </li>
               <li>
                 <a
-                  href="/terms-and-conditions.pdf"
+                  href="/TOK2EM_Terms_and_Conditions.docx"
                   target="_blank"
                   rel="noreferrer"
                   className="text-[#7A746B] hover:text-[#181614] transition-colors text-[11px] font-mono-label flex items-center gap-1"
                 >
-                  Terms PDF <ArrowUpRight className="h-2.5 w-2.5" />
+                  Terms Doc (.docx) <ArrowUpRight className="h-2.5 w-2.5" />
                 </a>
               </li>
               <li className="pt-2">
@@ -221,7 +221,9 @@ export function Footer() {
                   <span className="font-mono-label text-[10px] text-[#7A746B] block uppercase tracking-wider">
                     Base Location
                   </span>
-                  <p className="text-xs text-[#5A554E]">Des Moines, Iowa • Nationwide</p>
+                  <p className="text-xs text-[#5A554E]">
+                    6701 Corporate Dr, Suite N, Johnston, IA 50131
+                  </p>
                 </div>
               </div>
             </div>

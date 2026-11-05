@@ -197,49 +197,58 @@ export const DEFAULT_LEGAL_PAGES: Record<string, LegalPage> = {
     slug: "privacy-policy",
     title: "TALK2EM LLC — Privacy Policy",
     content_html: `
-      <h2>TALK2EM LLC — Privacy Policy</h2>
-      <p><strong>Last updated:</strong> Nov 5, 2026</p>
+      <h2>Privacy Policy</h2>
+      <p class="text-sm text-[#7A746B]"><strong>Talk to 'Em LLC (TOK2EM)</strong> | How we collect, use and protect personal information</p>
+      <p><strong>Effective date:</strong> November 6, 2026</p>
+      <p>Talk to 'Em LLC (TOK2EM, “Talk to 'Em,” “we,” “us” or “our”) respects the privacy of website visitors and people who contact us about our services. This Privacy Policy explains the personal information we may receive, why we use it and how individuals can contact us about that information.</p>
 
-      <h3>1. Who We Are</h3>
-      <p>TALK2EM LLC ("TALK2EM," "we," "us," or "our") is an Iowa limited liability company that operates <a href="https://talk2emllc.com" target="_blank" rel="noreferrer">talk2emllc.com</a> (the "Site"). This Privacy Policy explains what information we collect, how we use it, and the choices you have. By using the Site or our services, you agree to this policy.</p>
+      <h3>1. Information We Collect</h3>
+      <p>When you contact us or inquire about an engagement, we may receive your name, telephone number, email address, company name, and event details and location (where available). We may also receive information you choose to include in emails or other correspondence.</p>
 
-      <h3>2. Information We Collect and How We Use It</h3>
-      <p><strong>Information you give us.</strong> When you contact us, book a session, make a payment or donation, or sign up for updates, we may collect your name, email address, phone number, mailing address, and any details you choose to share.</p>
-      <p><strong>Information collected automatically.</strong> Like most websites, the Site may collect basic technical data such as your IP address, browser type, device type, pages visited, and time spent on the Site.</p>
-      <p><strong>Payment information.</strong> Payments are handled by third-party processors. We do not store your full credit card or bank account numbers.</p>
-      <p>We use this information to:</p>
-      <ul>
-        <li>Respond to your questions and requests</li>
-        <li>Schedule and provide our services</li>
-        <li>Process payments, donations, and invoices</li>
-        <li>Send updates or marketing messages you've agreed to receive (you can unsubscribe anytime)</li>
-        <li>Improve the Site and our services</li>
-        <li>Meet legal, tax, and accounting obligations</li>
-      </ul>
+      <h3>2. How Information Is Provided</h3>
+      <p>At present, the website does not offer a contact form, booking form, newsletter subscription form or consultation form. You may contact us directly using the published business contact details. Files, documents or photographs cannot currently be uploaded through the website, but may be emailed to us when necessary. We may introduce a booking calendar or telephone-consultation booking form in the future.</p>
 
-      <h3>3. Sharing, Cookies, and Third-Party Services</h3>
-      <p><strong>We do not sell your personal information.</strong> We share it only:</p>
-      <ul>
-        <li>With trusted service providers who help us run the business (such as website hosting, scheduling, email, and payment processing), and only as needed to do that work</li>
-        <li>When required by law, court order, or to protect our rights, safety, or property</li>
-        <li>With your permission</li>
-        <li>As part of a business transfer, such as a merger or sale, where the new owner keeps this policy's protections</li>
-      </ul>
-      <p><strong>Cookies.</strong> The Site may use cookies and similar tools to remember your preferences and understand how visitors use the Site (for example, through analytics services like Google Analytics). You can turn off cookies in your browser settings, though some features may not work properly.</p>
-      <p><strong>Third-party sites.</strong> Links to other websites, booking tools, or social media are governed by those companies' own privacy policies, not ours.</p>
+      <h3>3. How We Use Personal Information</h3>
+      <p>We use information for business purposes, including responding to inquiries, discussing or arranging speaking and coaching engagements, communicating with clients, organising event details and administering our services.</p>
+      <p>We may introduce newsletters, promotional emails or other marketing communications in the future. If we do so, we will provide any required notices and choices, including a way to opt out where applicable.</p>
 
-      <h3>4. Security, Your Choices, and Contact</h3>
-      <p><strong>Security.</strong> We use reasonable safeguards to protect your information. No website or online service is 100% secure, so we cannot guarantee absolute security.</p>
-      <p><strong>How long we keep it.</strong> We keep personal information only as long as needed for the purposes above, or as required for legal, tax, and accounting records.</p>
-      <p><strong>Children.</strong> The Site is not directed to children under 13, and we do not knowingly collect their information. If you believe a child has shared information with us, contact us and we will delete it.</p>
-      <p><strong>Your choices.</strong> You may ask us to access, correct, or delete your personal information, or to stop sending you marketing messages. Contact us using the details below and we will respond within a reasonable time.</p>
-      <p><strong>Changes.</strong> We may update this policy from time to time. The "Last updated" date at the top shows the latest version.</p>
+      <h3>4. Payments and Billing</h3>
+      <p>We do not currently collect payment-card or billing information directly through the website. For business payments, we may use third-party providers such as Stripe, Square, PayPal or other payment services. If payment handling is introduced through the website, relevant provider policies and notices will apply, and this policy will be updated where appropriate.</p>
 
-      <h3>Contact Us</h3>
-      <p><strong>TALK2EM LLC</strong><br/>
-      Website: <a href="https://talk2emllc.com" target="_blank" rel="noreferrer">talk2emllc.com</a><br/>
-      Email: <a href="mailto:info@tok2em.com">info@tok2em.com</a><br/>
-      Phone: <a href="tel:+18444865236">(844) I-tok-2-em</a></p>
+      <h3>5. Disclosure to Service Providers</h3>
+      <p>We do not sell personal information. We do not share it with third parties for their independent purposes. Limited information may be disclosed to service providers where necessary to operate the business, such as a payment processor involved in a transaction.</p>
+
+      <h3>6. Access to Information and Confidentiality</h3>
+      <p>Within Talk to 'Em LLC, personal information is accessible to the owner and main operator. We handle collected information confidentially and take steps intended to protect it against unauthorised access or disclosure. No method of electronic storage or transmission can be guaranteed completely secure.</p>
+
+      <h3>7. Retention of Information</h3>
+      <p>We intend to retain customer information for up to five years. We review information at five-year intervals to consider whether it remains accurate or necessary. We may need to handle particular information differently where applicable legal or recordkeeping obligations require it.</p>
+
+      <h3>8. Access, Correction and Deletion Requests</h3>
+      <p>You may request access to, correction of or deletion of personal information that we hold about you. To make a request, contact <a href="mailto:info@tok2em.com">info@tok2em.com</a>. We will consider the request and respond in accordance with applicable legal and recordkeeping requirements.</p>
+
+      <h3>9. Analytics, Advertising and Tracking</h3>
+      <p>We do not currently use Google Analytics, Meta Pixel, Google Ads tracking or similar visitor-tracking tools. We reserve the option to introduce analytics or advertising technologies in the future. Before using such technologies, we will update our disclosures and provide any additional notices or choices required by applicable law.</p>
+
+      <h3>10. Third-Party Websites and Embedded Content</h3>
+      <p>Our website links to social-media platforms. We may also introduce third-party scheduling or booking features, YouTube videos, testimonials or other embedded external content. If you interact with a third-party website or feature, that provider may collect or process information under its own privacy policy. We encourage you to review the relevant provider’s notices.</p>
+
+      <h3>11. Audience and Geographic Scope</h3>
+      <p>Our services primarily serve clients and visitors in the United States. If our website practices or audience change, we may update this policy to reflect relevant new requirements.</p>
+
+      <h3>12. Updates to This Privacy Policy</h3>
+      <p>We may revise this Privacy Policy as our website, business practices, service providers or legal requirements change. Updates will be reflected in the policy posted on our website, together with an updated effective date.</p>
+
+      <div class="mt-8 pt-6 border-t border-[#E8E4DC] bg-[#FAF8F5] p-5 rounded">
+        <h4 class="font-serif font-bold text-lg text-[#181614] mb-2">Contact Information</h4>
+        <p class="text-sm text-[#5A554E] mb-3">For questions about this document or to contact Talk to 'Em LLC, please use the details below:</p>
+        <ul class="text-xs space-y-1.5 text-[#3A352E] font-mono">
+          <li><strong>Business:</strong> Talk to 'Em LLC (TOK2EM)</li>
+          <li><strong>Email:</strong> <a href="mailto:info@tok2em.com" class="underline">info@tok2em.com</a></li>
+          <li><strong>Telephone:</strong> <a href="tel:+18444865236" class="underline">844-I-TOK-2-EM (844-486-5236)</a></li>
+          <li><strong>Address:</strong> 6701 Corporate Drive, Suite N, Johnston, Iowa 50131, United States</li>
+        </ul>
+      </div>
     `,
   },
   "terms-of-service": {
@@ -247,55 +256,54 @@ export const DEFAULT_LEGAL_PAGES: Record<string, LegalPage> = {
     slug: "terms-of-service",
     title: "TALK2EM LLC — Website Terms and Conditions",
     content_html: `
-      <h2>TALK2EM LLC — Website Terms and Conditions</h2>
-      <p><strong>Last updated:</strong> Nov 5, 2026</p>
+      <h2>Terms & Conditions</h2>
+      <p class="text-sm text-[#7A746B]"><strong>Talk to 'Em LLC (TOK2EM)</strong> | Speaking, events, coaching and website usage</p>
+      <p><strong>Effective date:</strong> November 6, 2026</p>
+      <p>These Terms & Conditions describe the policies applicable to inquiries, engagements, services and website content provided by Talk to 'Em LLC, also known as TOK2EM or “Talk to 'Em” (referred to below as “we,” “us” or “our”). Please read them before arranging an engagement or using our materials.</p>
 
-      <h3>1. Agreement to These Terms</h3>
-      <p>These Terms and Conditions ("Terms") govern your use of <a href="https://talk2emllc.com" target="_blank" rel="noreferrer">talk2emllc.com</a> (the "Site") and any services offered by TALK2EM LLC ("TALK2EM," "we," "us," or "our"), an Iowa limited liability company. By visiting the Site, contacting us, booking a session, or buying a service, you agree to these Terms. If you do not agree, please do not use the Site.</p>
-      <p>You must be at least 18 years old, or have a parent or guardian's permission, to use the Site or book services.</p>
+      <h3>1. Services Offered</h3>
+      <p>We provide motivational speaking, keynote speaking, corporate-event presentations, seminars, workshops, coaching and youth intervention talks. The scope, timing, location and other arrangements for an engagement will be discussed with the client before confirmation.</p>
 
-      <h3>2. Using the Site</h3>
-      <p>You may use the Site for lawful, personal, and business purposes. When using the Site, you agree not to:</p>
-      <ul>
-        <li>Break any law or regulation</li>
-        <li>Copy, sell, or reuse Site content without our written permission</li>
-        <li>Upload viruses, spam, or harmful code, or try to hack or disrupt the Site</li>
-        <li>Pretend to be someone else or give false information</li>
-        <li>Harass, threaten, or abuse us or other users</li>
-      </ul>
-      <p>We may suspend or block access to the Site for anyone who breaks these rules.</p>
+      <h3>2. Inquiries and Booking Confirmation</h3>
+      <p>Clients begin by submitting an inquiry rather than completing an instant online booking. A booking is not confirmed until the owner or an authorised staff member of Talk to 'Em LLC confirms it. Any agreed event details and payment arrangements should be documented in the booking correspondence.</p>
 
-      <h3>3. Services, Payments, and Cancellations</h3>
-      <p>TALK2EM LLC may offer coaching, speaking, consulting, video production, and related services. Details, prices, and timelines for each service are set in the quote, booking confirmation, or separate agreement you receive. If that agreement conflicts with these Terms, the agreement controls.</p>
-      <ul>
-        <li><strong>Payment:</strong> Fees are due as stated on your invoice or at booking. Late payments may delay or pause services.</li>
-        <li><strong>Cancellations and rescheduling:</strong> Please give at least 24 hours' notice to cancel or reschedule a session. Missed sessions or late cancellations may be charged in full.</li>
-        <li><strong>Refunds:</strong> Payments for completed services are non-refundable. Deposits are non-refundable unless your agreement says otherwise.</li>
-        <li><strong>Donations:</strong> Any donations made through the Site are voluntary and non-refundable.</li>
-        <li><strong>No guaranteed results:</strong> Coaching and consulting are educational and supportive. We do not guarantee any specific personal, financial, or business outcome. Our services are not medical, mental health, legal, or financial advice.</li>
-      </ul>
+      <h3>3. Fees, Deposits and Event Expenses</h3>
+      <p>An advance payment or deposit is not presently required to confirm an engagement, although deposits are appreciated. Payment arrangements may be agreed before or after the event. Talk to 'Em LLC is responsible for travel, accommodation and other event-related expenses, which are covered from payments received in advance or after the event. Any engagement-specific fees and payment terms will be communicated during the booking process.</p>
 
-      <h3>4. Intellectual Property</h3>
-      <p>All content on the Site, including text, logos, videos, photos, graphics, and the slogan "Our Words, Your Wisdom," belongs to TALK2EM LLC or its licensors and is protected by copyright and trademark law. You may view and share Site pages for personal use, but you may not copy, edit, sell, or reuse our content without written permission.</p>
-      <p>If you send us content (such as photos, videos, testimonials, or messages), you confirm you have the right to share it. Unless we agree otherwise in writing, you allow us to use testimonials and feedback you provide to promote our services. Ownership of videos or other work we create for you is set by your service agreement.</p>
+      <h3>4. Cancellation</h3>
+      <p>Clients must provide at least 48 hours’ notice before a scheduled speaking event or engagement to cancel without cancellation penalties or fees. Cancellations made with less than 48 hours’ notice may result in penalties or fees where these have been communicated and agreed as part of the booking arrangements.</p>
 
-      <h3>5. Links, Disclaimers, and Limits of Liability</h3>
-      <p><strong>Third-party links.</strong> The Site may link to other websites, booking tools, or payment processors. We do not control them and are not responsible for their content, policies, or practices.</p>
-      <p><strong>As-is.</strong> The Site and its content are provided "as is" and "as available." We do our best to keep information accurate, but we do not promise the Site will be error-free, uninterrupted, or free of viruses.</p>
-      <p><strong>Limitation of liability.</strong> To the fullest extent allowed by law, TALK2EM LLC and its owners, employees, and partners are not liable for any indirect, incidental, or consequential damages from your use of the Site or our services. Our total liability for any claim will not exceed the amount you paid us in the 12 months before the claim.</p>
-      <p><strong>Indemnification.</strong> You agree to cover and protect TALK2EM LLC from any claims, losses, or costs (including reasonable attorney fees) caused by your misuse of the Site or your breach of these Terms.</p>
+      <h3>5. Rescheduling and Postponement</h3>
+      <p>At least 48 hours’ notice is required to reschedule or postpone an engagement. Any alternative date or time remains subject to confirmation by Talk to 'Em LLC.</p>
 
-      <h3>6. Privacy, Governing Law, and Changes</h3>
-      <p><strong>Privacy.</strong> We collect only the information needed to respond to you, book services, and process payments. We do not sell your personal information. See our Privacy Policy for details.</p>
-      <p><strong>Governing law.</strong> These Terms are governed by the laws of the State of Iowa. Any dispute will be handled in the state or federal courts located in Polk County, Iowa.</p>
-      <p><strong>Changes.</strong> We may update these Terms at any time. The "Last updated" date at the top shows the latest version. Continuing to use the Site after changes means you accept them.</p>
-      <p><strong>Severability.</strong> If any part of these Terms is found unenforceable, the rest stays in effect.</p>
+      <h3>6. Refunds</h3>
+      <p>If payment has been made, a refund will be provided when a client cancels in accordance with the 48-hour notice requirement or if Talk to 'Em LLC is unable to attend the event for personal reasons. Otherwise, payments are non-refundable, subject to any non-waivable rights under applicable law. If no payment has been received, no refund is due.</p>
 
-      <h3>Contact Us</h3>
-      <p><strong>TALK2EM LLC</strong><br/>
-      Website: <a href="https://talk2emllc.com" target="_blank" rel="noreferrer">talk2emllc.com</a><br/>
-      Email: <a href="mailto:info@tok2em.com">info@tok2em.com</a><br/>
-      Phone: <a href="tel:+18444865236">(844) I-tok-2-em</a></p>
+      <h3>7. Ownership of Content and Materials</h3>
+      <p>Talk to 'Em LLC owns the rights to its speeches, presentations, videos, photographs, written content and other original materials. All rights are reserved. No part of these materials may be copied, reproduced, reused, published or distributed without our prior written permission.</p>
+
+      <h3>8. Photography, Recording and Sharing</h3>
+      <p>Clients and attendees may not photograph, audio-record, video-record or share our speaking sessions without prior written permission. Written permission is also required before using any speech, presentation, video or related materials. Permission, if granted, applies only to the use specifically authorised in writing.</p>
+
+      <h3>9. Website Content and Acceptable Use</h3>
+      <p>Website visitors must act respectfully and must not misuse the website or its content. Unauthorised copying, reproduction, commercial use or distribution of website materials is prohibited. Please obtain written permission before republishing or sharing our website content on social-media platforms or elsewhere.</p>
+
+      <h3>10. External Links and Services</h3>
+      <p>Our website may provide links to social-media sites or, in the future, to third-party scheduling, booking or other services. Those services are operated independently, and their own terms and policies may apply when you use them.</p>
+
+      <h3>11. Changes to These Terms</h3>
+      <p>We may update these Terms & Conditions as our services or booking practices change. The version posted on our website will state its effective date. Any separately agreed engagement-specific terms will continue to apply as agreed.</p>
+
+      <div class="mt-8 pt-6 border-t border-[#E8E4DC] bg-[#FAF8F5] p-5 rounded">
+        <h4 class="font-serif font-bold text-lg text-[#181614] mb-2">Contact Information</h4>
+        <p class="text-sm text-[#5A554E] mb-3">For questions about this document or to contact Talk to 'Em LLC, please use the details below:</p>
+        <ul class="text-xs space-y-1.5 text-[#3A352E] font-mono">
+          <li><strong>Business:</strong> Talk to 'Em LLC (TOK2EM)</li>
+          <li><strong>Email:</strong> <a href="mailto:info@tok2em.com" class="underline">info@tok2em.com</a></li>
+          <li><strong>Telephone:</strong> <a href="tel:+18444865236" class="underline">844-I-TOK-2-EM (844-486-5236)</a></li>
+          <li><strong>Address:</strong> 6701 Corporate Drive, Suite N, Johnston, Iowa 50131, United States</li>
+        </ul>
+      </div>
     `,
   },
 };

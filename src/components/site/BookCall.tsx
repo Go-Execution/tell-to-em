@@ -104,10 +104,13 @@ export function BookCall() {
                   </div>
                   <div>
                     <span className="font-mono-label text-[10px] uppercase tracking-wider text-[#7A746B] block">
-                      Base Location
+                      Headquarters & Base Location
                     </span>
                     <p className="font-serif text-base text-[#181614]">
-                      Des Moines, Iowa • Available Nationwide
+                      6701 Corporate Dr, Suite N, Johnston, IA 50131
+                    </p>
+                    <p className="text-xs text-[#7A746B] font-mono-label mt-0.5">
+                      Des Moines Metro • Available Nationwide
                     </p>
                   </div>
                 </div>
