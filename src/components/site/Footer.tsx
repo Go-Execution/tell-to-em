@@ -40,7 +40,7 @@ export function Footer() {
               keynote assemblies, restorative breakout circles, and authentic mentorship.
             </p>
             <div className="pt-2 text-[11px] font-mono-label text-[#7A746B]">
-              <span className="font-semibold text-[#181614]">Talk to Them LLC</span> • Operating
+              <span className="font-semibold text-[#181614]">TALK2EM LLC</span> • Operating
               talk2emllc.com
             </div>
           </div>
@@ -230,7 +230,7 @@ export function Footer() {
 
         {/* Bottom Bar: Copyright & Back to Top */}
         <div className="pt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono-label text-[#7A746B]">
-          <p>© {new Date().getFullYear()} Talk to Them LLC (TOK2EM). All Rights Reserved.</p>
+          <p>© {new Date().getFullYear()} TALK2EM LLC. All Rights Reserved.</p>
 
           <div className="flex items-center gap-6">
             <a

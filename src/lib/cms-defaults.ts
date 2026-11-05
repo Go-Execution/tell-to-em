@@ -195,13 +195,13 @@ export const DEFAULT_LEGAL_PAGES: Record<string, LegalPage> = {
   "privacy-policy": {
     id: "legal-privacy",
     slug: "privacy-policy",
-    title: "Talk to Them LLC — Privacy Policy",
+    title: "TALK2EM LLC — Privacy Policy",
     content_html: `
-      <h2>Talk to Them LLC — Privacy Policy</h2>
+      <h2>TALK2EM LLC — Privacy Policy</h2>
       <p><strong>Last updated:</strong> Nov 5, 2026</p>
 
       <h3>1. Who We Are</h3>
-      <p>Talk to Them LLC ("Talk to Them," "we," "us," or "our") is an Iowa limited liability company that operates <a href="https://talk2emllc.com" target="_blank" rel="noreferrer">talk2emllc.com</a> (the "Site"). This Privacy Policy explains what information we collect, how we use it, and the choices you have. By using the Site or our services, you agree to this policy.</p>
+      <p>TALK2EM LLC ("TALK2EM," "we," "us," or "our") is an Iowa limited liability company that operates <a href="https://talk2emllc.com" target="_blank" rel="noreferrer">talk2emllc.com</a> (the "Site"). This Privacy Policy explains what information we collect, how we use it, and the choices you have. By using the Site or our services, you agree to this policy.</p>
 
       <h3>2. Information We Collect and How We Use It</h3>
       <p><strong>Information you give us.</strong> When you contact us, book a session, make a payment or donation, or sign up for updates, we may collect your name, email address, phone number, mailing address, and any details you choose to share.</p>
@@ -236,7 +236,7 @@ export const DEFAULT_LEGAL_PAGES: Record<string, LegalPage> = {
       <p><strong>Changes.</strong> We may update this policy from time to time. The "Last updated" date at the top shows the latest version.</p>
 
       <h3>Contact Us</h3>
-      <p><strong>Talk to Them LLC</strong><br/>
+      <p><strong>TALK2EM LLC</strong><br/>
       Website: <a href="https://talk2emllc.com" target="_blank" rel="noreferrer">talk2emllc.com</a><br/>
       Email: <a href="mailto:info@tok2em.com">info@tok2em.com</a><br/>
       Phone: <a href="tel:+18444865236">(844) I-tok-2-em</a></p>
@@ -245,13 +245,13 @@ export const DEFAULT_LEGAL_PAGES: Record<string, LegalPage> = {
   "terms-of-service": {
     id: "legal-terms",
     slug: "terms-of-service",
-    title: "Talk2Em LLC — Website Terms and Conditions",
+    title: "TALK2EM LLC — Website Terms and Conditions",
     content_html: `
-      <h2>Talk2Em LLC — Website Terms and Conditions</h2>
+      <h2>TALK2EM LLC — Website Terms and Conditions</h2>
       <p><strong>Last updated:</strong> Nov 5, 2026</p>
 
       <h3>1. Agreement to These Terms</h3>
-      <p>These Terms and Conditions ("Terms") govern your use of <a href="https://talk2emllc.com" target="_blank" rel="noreferrer">talk2emllc.com</a> (the "Site") and any services offered by Talk to Them LLC ("Talk to Them," "we," "us," or "our"), an Iowa limited liability company. By visiting the Site, contacting us, booking a session, or buying a service, you agree to these Terms. If you do not agree, please do not use the Site.</p>
+      <p>These Terms and Conditions ("Terms") govern your use of <a href="https://talk2emllc.com" target="_blank" rel="noreferrer">talk2emllc.com</a> (the "Site") and any services offered by TALK2EM LLC ("TALK2EM," "we," "us," or "our"), an Iowa limited liability company. By visiting the Site, contacting us, booking a session, or buying a service, you agree to these Terms. If you do not agree, please do not use the Site.</p>
       <p>You must be at least 18 years old, or have a parent or guardian's permission, to use the Site or book services.</p>
 
       <h3>2. Using the Site</h3>
@@ -266,7 +266,7 @@ export const DEFAULT_LEGAL_PAGES: Record<string, LegalPage> = {
       <p>We may suspend or block access to the Site for anyone who breaks these rules.</p>
 
       <h3>3. Services, Payments, and Cancellations</h3>
-      <p>Talk to Them may offer coaching, speaking, consulting, video production, and related services. Details, prices, and timelines for each service are set in the quote, booking confirmation, or separate agreement you receive. If that agreement conflicts with these Terms, the agreement controls.</p>
+      <p>TALK2EM LLC may offer coaching, speaking, consulting, video production, and related services. Details, prices, and timelines for each service are set in the quote, booking confirmation, or separate agreement you receive. If that agreement conflicts with these Terms, the agreement controls.</p>
       <ul>
         <li><strong>Payment:</strong> Fees are due as stated on your invoice or at booking. Late payments may delay or pause services.</li>
         <li><strong>Cancellations and rescheduling:</strong> Please give at least 24 hours' notice to cancel or reschedule a session. Missed sessions or late cancellations may be charged in full.</li>
@@ -276,14 +276,14 @@ export const DEFAULT_LEGAL_PAGES: Record<string, LegalPage> = {
       </ul>
 
       <h3>4. Intellectual Property</h3>
-      <p>All content on the Site, including text, logos, videos, photos, graphics, and the slogan "Our Words, Your Wisdom," belongs to Talk to Them LLC or its licensors and is protected by copyright and trademark law. You may view and share Site pages for personal use, but you may not copy, edit, sell, or reuse our content without written permission.</p>
+      <p>All content on the Site, including text, logos, videos, photos, graphics, and the slogan "Our Words, Your Wisdom," belongs to TALK2EM LLC or its licensors and is protected by copyright and trademark law. You may view and share Site pages for personal use, but you may not copy, edit, sell, or reuse our content without written permission.</p>
       <p>If you send us content (such as photos, videos, testimonials, or messages), you confirm you have the right to share it. Unless we agree otherwise in writing, you allow us to use testimonials and feedback you provide to promote our services. Ownership of videos or other work we create for you is set by your service agreement.</p>
 
       <h3>5. Links, Disclaimers, and Limits of Liability</h3>
       <p><strong>Third-party links.</strong> The Site may link to other websites, booking tools, or payment processors. We do not control them and are not responsible for their content, policies, or practices.</p>
       <p><strong>As-is.</strong> The Site and its content are provided "as is" and "as available." We do our best to keep information accurate, but we do not promise the Site will be error-free, uninterrupted, or free of viruses.</p>
-      <p><strong>Limitation of liability.</strong> To the fullest extent allowed by law, Talk to Them LLC and its owners, employees, and partners are not liable for any indirect, incidental, or consequential damages from your use of the Site or our services. Our total liability for any claim will not exceed the amount you paid us in the 12 months before the claim.</p>
-      <p><strong>Indemnification.</strong> You agree to cover and protect Talk to Them LLC from any claims, losses, or costs (including reasonable attorney fees) caused by your misuse of the Site or your breach of these Terms.</p>
+      <p><strong>Limitation of liability.</strong> To the fullest extent allowed by law, TALK2EM LLC and its owners, employees, and partners are not liable for any indirect, incidental, or consequential damages from your use of the Site or our services. Our total liability for any claim will not exceed the amount you paid us in the 12 months before the claim.</p>
+      <p><strong>Indemnification.</strong> You agree to cover and protect TALK2EM LLC from any claims, losses, or costs (including reasonable attorney fees) caused by your misuse of the Site or your breach of these Terms.</p>
 
       <h3>6. Privacy, Governing Law, and Changes</h3>
       <p><strong>Privacy.</strong> We collect only the information needed to respond to you, book services, and process payments. We do not sell your personal information. See our Privacy Policy for details.</p>
@@ -292,7 +292,7 @@ export const DEFAULT_LEGAL_PAGES: Record<string, LegalPage> = {
       <p><strong>Severability.</strong> If any part of these Terms is found unenforceable, the rest stays in effect.</p>
 
       <h3>Contact Us</h3>
-      <p><strong>Talk to Them LLC</strong><br/>
+      <p><strong>TALK2EM LLC</strong><br/>
       Website: <a href="https://talk2emllc.com" target="_blank" rel="noreferrer">talk2emllc.com</a><br/>
       Email: <a href="mailto:info@tok2em.com">info@tok2em.com</a><br/>
       Phone: <a href="tel:+18444865236">(844) I-tok-2-em</a></p>

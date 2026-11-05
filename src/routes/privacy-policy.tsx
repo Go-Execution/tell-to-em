@@ -9,11 +9,11 @@ import { Download, FileText } from "lucide-react";
 export const Route = createFileRoute("/privacy-policy")({
   head: () => ({
     meta: [
-      { title: "Talk to Them LLC — Privacy Policy | TOK2EM" },
+      { title: "TALK2EM LLC — Privacy Policy" },
       {
         name: "description",
         content:
-          "Official privacy policy and educator data protection standards for Talk to Them LLC operating talk2emllc.com.",
+          "Official privacy policy and educator data protection standards for TALK2EM LLC operating talk2emllc.com.",
       },
     ],
   }),
@@ -38,7 +38,7 @@ function PrivacyPolicyPage() {
                 Legal & Compliance • talk2emllc.com
               </span>
               <h1 className="mt-2 font-serif text-3xl sm:text-4xl font-normal tracking-tight text-[#181614]">
-                {page?.title || "Talk to Them LLC — Privacy Policy"}
+                {page?.title || "TALK2EM LLC — Privacy Policy"}
               </h1>
               {page?.last_updated_at && (
                 <p className="mt-2 text-xs font-mono-label text-[#7A746B]">
@@ -49,7 +49,7 @@ function PrivacyPolicyPage() {
 
             <a
               href="/privacy-policy.pdf"
-              download="Talk to Them LLC _ Privacy Policy.pdf"
+              download="TALK2EM LLC _ Privacy Policy.pdf"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-[#181614] bg-white px-4 py-2 text-xs font-mono-label font-bold uppercase tracking-wider text-[#181614] hover:bg-[#181614] hover:text-white transition-colors shrink-0"

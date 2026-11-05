@@ -9,11 +9,11 @@ import { Download } from "lucide-react";
 export const Route = createFileRoute("/terms-of-service")({
   head: () => ({
     meta: [
-      { title: "Talk2Em LLC — Website Terms and Conditions | TOK2EM" },
+      { title: "TALK2EM LLC — Website Terms and Conditions" },
       {
         name: "description",
         content:
-          "Official terms and conditions for booking and speaking services provided by Talk to Them LLC operating talk2emllc.com.",
+          "Official terms and conditions for booking and speaking services provided by TALK2EM LLC operating talk2emllc.com.",
       },
     ],
   }),
