@@ -10,6 +10,20 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 -- TABLES
 -- ==============================================================================
 
+-- 0. Campus Programs (Speaking Formats - Student Assemblies, Intervention Circles, Staff Workshops)
+CREATE TABLE IF NOT EXISTS public.campus_programs (
+    id TEXT PRIMARY KEY DEFAULT gen_random_uuid()::text,
+    title TEXT NOT NULL,
+    audience TEXT NOT NULL,
+    description TEXT NOT NULL,
+    image_url TEXT,
+    inquire_label TEXT DEFAULT 'Inquire for Dates →',
+    sort_order INT DEFAULT 0,
+    is_active BOOLEAN DEFAULT true,
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
 -- 1. Speaking Programs / Topics
 CREATE TABLE IF NOT EXISTS public.programs (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -90,6 +104,7 @@ CREATE TABLE IF NOT EXISTS public.inquiries (
 -- ROW LEVEL SECURITY (RLS) POLICIES
 -- ==============================================================================
 
+ALTER TABLE public.campus_programs ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.programs ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.faqs ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.testimonials ENABLE ROW LEVEL SECURITY;
@@ -98,6 +113,7 @@ ALTER TABLE public.site_settings ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.inquiries ENABLE ROW LEVEL SECURITY;
 
 -- Drop previous policies if they exist (for idempotent runs)
+DROP POLICY IF EXISTS "Public full access to campus programs" ON public.campus_programs;
 DROP POLICY IF EXISTS "Public full access to programs" ON public.programs;
 DROP POLICY IF EXISTS "Public full access to faqs" ON public.faqs;
 DROP POLICY IF EXISTS "Public full access to testimonials" ON public.testimonials;
@@ -118,6 +134,7 @@ DROP POLICY IF EXISTS "Admins have full access to site settings" ON public.site_
 DROP POLICY IF EXISTS "Admins have full access to inquiries" ON public.inquiries;
 
 -- Allow anon & authenticated full access for the single-password client preview phase
+CREATE POLICY "Public full access to campus programs" ON public.campus_programs FOR ALL TO anon, authenticated USING (true) WITH CHECK (true);
 CREATE POLICY "Public full access to programs" ON public.programs FOR ALL TO anon, authenticated USING (true) WITH CHECK (true);
 CREATE POLICY "Public full access to faqs" ON public.faqs FOR ALL TO anon, authenticated USING (true) WITH CHECK (true);
 CREATE POLICY "Public full access to testimonials" ON public.testimonials FOR ALL TO anon, authenticated USING (true) WITH CHECK (true);
@@ -128,6 +145,49 @@ CREATE POLICY "Public full access to inquiries" ON public.inquiries FOR ALL TO a
 -- ==============================================================================
 -- INITIAL SEED DATA (Pre-populating current website content)
 -- ==============================================================================
+
+-- Seed Campus Programs (Speaking Formats)
+INSERT INTO public.campus_programs (id, title, audience, description, image_url, inquire_label, sort_order, is_active)
+VALUES
+(
+    'campus-1',
+    'Student Assemblies',
+    'Middle & High School (Grades 6–12)',
+    'High-energy presentations that dismantle peer pressure and inspire lasting self-respect.',
+    '',
+    'Inquire for Dates →',
+    1,
+    true
+),
+(
+    'campus-2',
+    'Intervention Circles',
+    'Alternative Education & At-Risk Youth',
+    'Knee-to-knee discussions focused on anger management, impulse control, and accountability.',
+    '',
+    'Inquire for Dates →',
+    2,
+    true
+),
+(
+    'campus-3',
+    'Staff & Educator Workshops',
+    'Teachers, Counselors & Mentors',
+    'Communication tools to reach emotionally guarded teens without lowering behavioral standards.',
+    '',
+    'Inquire for Dates →',
+    3,
+    true
+)
+ON CONFLICT (id) DO UPDATE
+SET title = EXCLUDED.title,
+    audience = EXCLUDED.audience,
+    description = EXCLUDED.description,
+    image_url = EXCLUDED.image_url,
+    inquire_label = EXCLUDED.inquire_label,
+    sort_order = EXCLUDED.sort_order,
+    is_active = EXCLUDED.is_active,
+    updated_at = NOW();
 
 -- Seed Programs / Speaking Topics
 INSERT INTO public.programs (title, slug, tagline, description, target_audience, bullet_points, sort_order, is_active)

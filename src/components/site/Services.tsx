@@ -1,33 +1,39 @@
+import { useEffect, useState } from "react";
 import assemblyImage from "@/assets/assembly.jpg";
 import circleImage from "@/assets/circle.jpg";
 import workshopImage from "@/assets/workshop.jpg";
 import { Reveal } from "./Reveal";
+import { fetchCampusPrograms } from "@/lib/cms-client";
+import { DEFAULT_CAMPUS_PROGRAMS } from "@/lib/cms-defaults";
+import type { CampusProgram } from "@/types/cms";
 
-const PROGRAMS = [
-  {
-    title: "Student Assemblies",
-    audience: "Middle & High School (Grades 6–12)",
-    description:
-      "High-energy presentations that dismantle peer pressure and inspire lasting self-respect.",
-    image: assemblyImage,
-  },
-  {
-    title: "Intervention Circles",
-    audience: "Alternative Education & At-Risk Youth",
-    description:
-      "Knee-to-knee discussions focused on anger management, impulse control, and accountability.",
-    image: circleImage,
-  },
-  {
-    title: "Staff & Educator Workshops",
-    audience: "Teachers, Counselors & Mentors",
-    description:
-      "Communication tools to reach emotionally guarded teens without lowering behavioral standards.",
-    image: workshopImage,
-  },
-];
+function getProgramImage(item: CampusProgram, index: number) {
+  if (item.image_url && item.image_url.trim()) {
+    return item.image_url;
+  }
+  const title = (item.title || "").toLowerCase();
+  if (title.includes("assembl")) return assemblyImage;
+  if (title.includes("circle") || title.includes("interven")) return circleImage;
+  if (title.includes("workshop") || title.includes("staff") || title.includes("educator")) {
+    return workshopImage;
+  }
+  const fallbacks = [assemblyImage, circleImage, workshopImage];
+  return fallbacks[index % fallbacks.length];
+}
 
 export function Services() {
+  const [programs, setPrograms] = useState<CampusProgram[]>(() =>
+    DEFAULT_CAMPUS_PROGRAMS.filter((p) => p.is_active),
+  );
+
+  useEffect(() => {
+    fetchCampusPrograms().then((data) => {
+      if (data && data.length > 0) {
+        setPrograms(data.filter((p) => p.is_active));
+      }
+    });
+  }, []);
+
   return (
     <section
       id="programs"
@@ -52,15 +58,15 @@ export function Services() {
 
           {/* Visual Program Cards */}
           <div className="mt-12 grid gap-8 md:grid-cols-3">
-            {PROGRAMS.map((item) => (
+            {programs.map((item, idx) => (
               <div
-                key={item.title}
+                key={item.id || item.title}
                 className="flex flex-col justify-between border border-[#E8E4DC] bg-white p-5 shadow-xs"
               >
                 <div>
-                  <div className="overflow-hidden border border-[#E8E4DC] h-48">
+                  <div className="overflow-hidden border border-[#E8E4DC] h-48 bg-[#FAF8F5]">
                     <img
-                      src={item.image}
+                      src={getProgramImage(item, idx)}
                       alt={item.title}
                       className="h-full w-full object-cover grayscale contrast-105 transition-all duration-500 hover:grayscale-0"
                       loading="lazy"
@@ -78,7 +84,7 @@ export function Services() {
                     href="#inquire"
                     className="font-mono-label text-xs font-bold text-[#181614] hover:underline"
                   >
-                    Inquire for Dates →
+                    {item.inquire_label || "Inquire for Dates →"}
                   </a>
                 </div>
               </div>

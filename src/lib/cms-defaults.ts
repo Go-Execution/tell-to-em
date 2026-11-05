@@ -1,11 +1,48 @@
 import type {
   ProgramTopic,
+  CampusProgram,
   FaqItem,
   TestimonialItem,
   LegalPage,
   SiteSettings,
   InquiryLead,
 } from "@/types/cms";
+
+export const DEFAULT_CAMPUS_PROGRAMS: CampusProgram[] = [
+  {
+    id: "campus-1",
+    title: "Student Assemblies",
+    audience: "Middle & High School (Grades 6–12)",
+    description:
+      "High-energy presentations that dismantle peer pressure and inspire lasting self-respect.",
+    image_url: "",
+    inquire_label: "Inquire for Dates →",
+    sort_order: 1,
+    is_active: true,
+  },
+  {
+    id: "campus-2",
+    title: "Intervention Circles",
+    audience: "Alternative Education & At-Risk Youth",
+    description:
+      "Knee-to-knee discussions focused on anger management, impulse control, and accountability.",
+    image_url: "",
+    inquire_label: "Inquire for Dates →",
+    sort_order: 2,
+    is_active: true,
+  },
+  {
+    id: "campus-3",
+    title: "Staff & Educator Workshops",
+    audience: "Teachers, Counselors & Mentors",
+    description:
+      "Communication tools to reach emotionally guarded teens without lowering behavioral standards.",
+    image_url: "",
+    inquire_label: "Inquire for Dates →",
+    sort_order: 3,
+    is_active: true,
+  },
+];
 
 export const DEFAULT_PROGRAMS: ProgramTopic[] = [
   {

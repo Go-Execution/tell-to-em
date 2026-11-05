@@ -13,6 +13,19 @@ export interface ProgramTopic {
   updated_at?: string;
 }
 
+export interface CampusProgram {
+  id: string;
+  title: string;
+  audience: string;
+  description: string;
+  image_url?: string;
+  inquire_label?: string;
+  sort_order: number;
+  is_active: boolean;
+  created_at?: string;
+  updated_at?: string;
+}
+
 export interface FaqItem {
   id: string;
   question: string;

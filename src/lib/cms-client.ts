@@ -1,6 +1,7 @@
 import { supabase, isSupabaseConfigured } from "./supabase";
 import {
   DEFAULT_PROGRAMS,
+  DEFAULT_CAMPUS_PROGRAMS,
   DEFAULT_FAQS,
   DEFAULT_TESTIMONIALS,
   DEFAULT_LEGAL_PAGES,
@@ -9,6 +10,7 @@ import {
 } from "./cms-defaults";
 import type {
   ProgramTopic,
+  CampusProgram,
   FaqItem,
   TestimonialItem,
   LegalPage,
@@ -34,6 +36,62 @@ function setStored<T>(key: string, value: T): void {
   } catch (err) {
     console.warn("Could not save to localStorage:", err);
   }
+}
+
+// ==========================================
+// CAMPUS PROGRAMS API (Speaking Formats)
+// ==========================================
+export async function fetchCampusPrograms(): Promise<CampusProgram[]> {
+  if (isSupabaseConfigured && supabase) {
+    try {
+      const { data, error } = await supabase
+        .from("campus_programs")
+        .select("*")
+        .order("sort_order", { ascending: true });
+      if (!error && data && data.length > 0) return data as CampusProgram[];
+    } catch (err) {
+      console.warn("Supabase fetchCampusPrograms error, using cache/defaults:", err);
+    }
+  }
+  return getStored<CampusProgram[]>("campus_programs", DEFAULT_CAMPUS_PROGRAMS);
+}
+
+export async function upsertCampusProgram(item: CampusProgram): Promise<void> {
+  if (isSupabaseConfigured && supabase) {
+    try {
+      const { error } = await supabase.from("campus_programs").upsert({
+        ...item,
+        updated_at: new Date().toISOString(),
+      });
+      if (error) console.warn("Supabase upsertCampusProgram warning:", error);
+    } catch (err) {
+      console.warn("Supabase upsertCampusProgram error:", err);
+    }
+  }
+  const current = getStored<CampusProgram[]>("campus_programs", DEFAULT_CAMPUS_PROGRAMS);
+  const index = current.findIndex((p) => p.id === item.id);
+  if (index >= 0) {
+    current[index] = item;
+  } else {
+    current.push(item);
+  }
+  setStored("campus_programs", current);
+}
+
+export async function deleteCampusProgram(id: string): Promise<void> {
+  if (isSupabaseConfigured && supabase) {
+    try {
+      const { error } = await supabase.from("campus_programs").delete().eq("id", id);
+      if (error) console.warn("Supabase deleteCampusProgram warning:", error);
+    } catch (err) {
+      console.warn("Supabase deleteCampusProgram error:", err);
+    }
+  }
+  const current = getStored<CampusProgram[]>("campus_programs", DEFAULT_CAMPUS_PROGRAMS);
+  setStored(
+    "campus_programs",
+    current.filter((p) => p.id !== id),
+  );
 }
 
 // ==========================================

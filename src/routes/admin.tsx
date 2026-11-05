@@ -1,8 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import logo from "@/assets/logo.png";
+import assemblyImage from "@/assets/assembly.jpg";
+import circleImage from "@/assets/circle.jpg";
+import workshopImage from "@/assets/workshop.jpg";
 import { RichTextEditor } from "@/components/ui/rich-text-editor";
 import {
+  fetchCampusPrograms,
+  upsertCampusProgram,
+  deleteCampusProgram,
   fetchPrograms,
   upsertProgram,
   deleteProgram,
@@ -21,6 +27,7 @@ import {
 } from "@/lib/cms-client";
 import { isSupabaseConfigured } from "@/lib/supabase";
 import type {
+  CampusProgram,
   ProgramTopic,
   FaqItem,
   TestimonialItem,
@@ -29,6 +36,7 @@ import type {
   InquiryLead,
 } from "@/types/cms";
 import {
+  LayoutGrid,
   BookOpen,
   HelpCircle,
   MessageSquareQuote,
@@ -54,7 +62,7 @@ export const Route = createFileRoute("/admin")({
   component: AdminPortalPage,
 });
 
-type TabType = "programs" | "faqs" | "testimonials" | "legal" | "settings" | "inquiries";
+type TabType = "campus" | "programs" | "faqs" | "testimonials" | "legal" | "settings" | "inquiries";
 
 function AdminPortalPage() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
@@ -64,7 +72,7 @@ function AdminPortalPage() {
   const [passwordInput, setPasswordInput] = useState("");
   const [authError, setAuthError] = useState("");
 
-  const [activeTab, setActiveTab] = useState<TabType>("programs");
+  const [activeTab, setActiveTab] = useState<TabType>("campus");
   const [notification, setNotification] = useState<string | null>(null);
 
   const configuredPassword = (import.meta.env.VITE_ADMIN_PASSWORD || "tok2em2026").trim();
@@ -94,6 +102,7 @@ function AdminPortalPage() {
   };
 
   // Data states
+  const [campusPrograms, setCampusPrograms] = useState<CampusProgram[]>([]);
   const [programs, setPrograms] = useState<ProgramTopic[]>([]);
   const [faqs, setFaqs] = useState<FaqItem[]>([]);
   const [testimonials, setTestimonials] = useState<TestimonialItem[]>([]);
@@ -105,13 +114,15 @@ function AdminPortalPage() {
   const [inquiries, setInquiries] = useState<InquiryLead[]>([]);
 
   // Modals / active edit states
+  const [editingCampus, setEditingCampus] = useState<CampusProgram | null>(null);
   const [editingProgram, setEditingProgram] = useState<ProgramTopic | null>(null);
   const [editingFaq, setEditingFaq] = useState<FaqItem | null>(null);
   const [editingTestimonial, setEditingTestimonial] = useState<TestimonialItem | null>(null);
 
   // Load all initial data
   const refreshData = async () => {
-    const [p, f, t, l, s, inq] = await Promise.all([
+    const [c, p, f, t, l, s, inq] = await Promise.all([
+      fetchCampusPrograms(),
       fetchPrograms(),
       fetchFaqs(),
       fetchTestimonials(),
@@ -119,6 +130,7 @@ function AdminPortalPage() {
       fetchSiteSettings(),
       fetchInquiries(),
     ]);
+    setCampusPrograms(c);
     setPrograms(p);
     setFaqs(f);
     setTestimonials(t);
@@ -134,6 +146,37 @@ function AdminPortalPage() {
   const showToast = (msg: string) => {
     setNotification(msg);
     setTimeout(() => setNotification(null), 3500);
+  };
+
+  function getAdminProgramImage(item: CampusProgram, index: number) {
+    if (item.image_url && item.image_url.trim()) return item.image_url;
+    const title = (item.title || "").toLowerCase();
+    if (title.includes("assembl")) return assemblyImage;
+    if (title.includes("circle") || title.includes("interven")) return circleImage;
+    if (title.includes("workshop") || title.includes("staff") || title.includes("educator")) {
+      return workshopImage;
+    }
+    const fallbacks = [assemblyImage, circleImage, workshopImage];
+    return fallbacks[index % fallbacks.length];
+  }
+
+  // Campus Program Handlers
+  const handleSaveCampus = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!editingCampus) return;
+    await upsertCampusProgram(editingCampus);
+    setEditingCampus(null);
+    const updated = await fetchCampusPrograms();
+    setCampusPrograms(updated);
+    showToast("Campus program format saved successfully!");
+  };
+
+  const handleDeleteCampus = async (id: string) => {
+    if (!confirm("Are you sure you want to delete this campus program?")) return;
+    await deleteCampusProgram(id);
+    const updated = await fetchCampusPrograms();
+    setCampusPrograms(updated);
+    showToast("Campus program deleted.");
   };
 
   // Program Handlers
@@ -349,6 +392,17 @@ function AdminPortalPage() {
         {/* Tab Navigation */}
         <div className="mx-auto max-w-7xl px-6 flex items-center gap-1 overflow-x-auto border-t border-[#EFECE6] bg-[#FAF8F5]">
           <button
+            onClick={() => setActiveTab("campus")}
+            className={`flex items-center gap-2 border-b-2 px-4 py-3 text-xs font-semibold uppercase tracking-wider transition-colors ${
+              activeTab === "campus"
+                ? "border-[#181614] text-[#181614]"
+                : "border-transparent text-[#7A746B] hover:text-[#181614]"
+            }`}
+          >
+            <LayoutGrid className="h-3.5 w-3.5" /> Campus Programs ({campusPrograms.length})
+          </button>
+
+          <button
             onClick={() => setActiveTab("programs")}
             className={`flex items-center gap-2 border-b-2 px-4 py-3 text-xs font-semibold uppercase tracking-wider transition-colors ${
               activeTab === "programs"
@@ -356,7 +410,7 @@ function AdminPortalPage() {
                 : "border-transparent text-[#7A746B] hover:text-[#181614]"
             }`}
           >
-            <BookOpen className="h-3.5 w-3.5" /> Programs & Topics ({programs.length})
+            <BookOpen className="h-3.5 w-3.5" /> Keynote Topics ({programs.length})
           </button>
 
           <button
@@ -418,6 +472,116 @@ function AdminPortalPage() {
 
       {/* Main Container */}
       <main className="mx-auto max-w-7xl px-6 py-8">
+        {/* TAB 0: CAMPUS PROGRAMS (SPEAKING FORMATS) */}
+        {activeTab === "campus" && (
+          <div className="space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="font-mono-label text-[10px] uppercase tracking-wider text-[#7A746B]">
+                    Homepage Section: Speaking Formats
+                  </span>
+                </div>
+                <h2 className="text-xl font-bold font-serif text-[#181614] mt-1">
+                  Campus Programs
+                </h2>
+                <p className="text-xs text-[#7A746B]">
+                  Manage the 3 visual program cards (Assemblies, Circles, Educator Workshops)
+                  displayed on the live website.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() =>
+                  setEditingCampus({
+                    id: `campus-${Date.now()}`,
+                    title: "",
+                    audience: "Middle & High School (Grades 6–12)",
+                    description: "",
+                    image_url: "",
+                    inquire_label: "Inquire for Dates →",
+                    sort_order: campusPrograms.length + 1,
+                    is_active: true,
+                  })
+                }
+                className="inline-flex items-center gap-1.5 rounded-full bg-[#181614] px-4 py-2 text-xs font-bold uppercase tracking-wider text-white hover:bg-black transition-colors"
+              >
+                <Plus className="h-4 w-4" /> Add Campus Program
+              </button>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {campusPrograms.map((item, idx) => (
+                <div
+                  key={item.id}
+                  className="rounded-lg border border-[#E0DBCF] bg-white p-5 shadow-xs flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="relative overflow-hidden rounded-md border border-[#E0DBCF] h-44 bg-[#FAF8F5] mb-4">
+                      <img
+                        src={getAdminProgramImage(item, idx)}
+                        alt={item.title}
+                        className="h-full w-full object-cover grayscale contrast-105"
+                      />
+                      <span
+                        className={`absolute top-2 right-2 rounded-full px-2 py-0.5 text-[10px] font-bold shadow-xs ${
+                          item.is_active
+                            ? "bg-emerald-100 text-emerald-800"
+                            : "bg-gray-100 text-gray-500"
+                        }`}
+                      >
+                        {item.is_active ? "Active" : "Draft"}
+                      </span>
+                    </div>
+
+                    <span className="text-[10px] font-mono-label uppercase tracking-widest text-[#7A746B]">
+                      {item.audience}
+                    </span>
+                    <h3 className="font-serif text-lg font-bold text-[#181614] mt-1">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs text-[#5A554E] mt-2 line-clamp-3 leading-relaxed">
+                      {item.description}
+                    </p>
+
+                    {item.image_url ? (
+                      <p className="text-[10px] text-emerald-700 bg-emerald-50 px-2 py-1 rounded mt-3 truncate font-mono">
+                        Custom Image: {item.image_url}
+                      </p>
+                    ) : (
+                      <p className="text-[10px] text-[#7A746B] bg-[#FAF8F5] px-2 py-1 rounded mt-3 italic">
+                        Using default photography
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="mt-5 flex items-center justify-between border-t border-[#EFECE6] pt-3">
+                    <span className="text-[11px] font-mono-label text-[#7A746B]">
+                      Order: #{item.sort_order}
+                    </span>
+                    <div className="flex items-center gap-2">
+                      <button
+                        type="button"
+                        onClick={() => setEditingCampus(item)}
+                        className="inline-flex items-center gap-1 rounded px-3 py-1.5 text-xs font-semibold text-[#181614] hover:bg-[#FAF8F5] border border-[#E0DBCF]"
+                      >
+                        <Edit2 className="h-3.5 w-3.5" /> Edit
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleDeleteCampus(item.id)}
+                        className="inline-flex items-center gap-1 rounded px-3 py-1.5 text-xs font-semibold text-rose-600 hover:bg-rose-50 border border-rose-200"
+                      >
+                        <Trash2 className="h-3.5 w-3.5" /> Delete
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* TAB 1: PROGRAMS */}
         {activeTab === "programs" && (
           <div className="space-y-6">
@@ -947,6 +1111,147 @@ function AdminPortalPage() {
           </div>
         )}
       </main>
+
+      {/* MODAL: CAMPUS PROGRAM EDIT */}
+      {editingCampus && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4 backdrop-blur-xs">
+          <div className="w-full max-w-lg rounded-lg border border-[#E0DBCF] bg-white p-6 shadow-xl animate-in fade-in zoom-in-95 max-h-[90vh] overflow-y-auto">
+            <h3 className="font-serif text-lg font-bold text-[#181614] mb-4">
+              {editingCampus.title ? `Edit "${editingCampus.title}"` : "Add Campus Program Format"}
+            </h3>
+
+            <form onSubmit={handleSaveCampus} className="space-y-4">
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider text-[#7A746B] mb-1">
+                  Format / Program Title
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={editingCampus.title}
+                  onChange={(e) => setEditingCampus({ ...editingCampus, title: e.target.value })}
+                  placeholder="e.g. Student Assemblies"
+                  className="w-full rounded border border-[#E0DBCF] px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[#181614]"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider text-[#7A746B] mb-1">
+                  Target Audience Subtitle
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={editingCampus.audience}
+                  onChange={(e) => setEditingCampus({ ...editingCampus, audience: e.target.value })}
+                  placeholder="e.g. Middle & High School (Grades 6–12)"
+                  className="w-full rounded border border-[#E0DBCF] px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[#181614]"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider text-[#7A746B] mb-1">
+                  Program Description
+                </label>
+                <textarea
+                  rows={3}
+                  required
+                  value={editingCampus.description}
+                  onChange={(e) =>
+                    setEditingCampus({ ...editingCampus, description: e.target.value })
+                  }
+                  placeholder="High-energy presentations that dismantle peer pressure..."
+                  className="w-full rounded border border-[#E0DBCF] px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[#181614]"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider text-[#7A746B] mb-1">
+                  Custom Image URL (Optional)
+                </label>
+                <input
+                  type="url"
+                  value={editingCampus.image_url || ""}
+                  onChange={(e) =>
+                    setEditingCampus({ ...editingCampus, image_url: e.target.value })
+                  }
+                  placeholder="https://... (Leave empty to use default photo)"
+                  className="w-full rounded border border-[#E0DBCF] px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[#181614]"
+                />
+                <p className="text-[11px] text-[#7A746B] mt-1">
+                  Leave blank to automatically use the default high-resolution photography.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[#7A746B] mb-1">
+                    Inquire Button Label
+                  </label>
+                  <input
+                    type="text"
+                    value={editingCampus.inquire_label || ""}
+                    onChange={(e) =>
+                      setEditingCampus({ ...editingCampus, inquire_label: e.target.value })
+                    }
+                    placeholder="Inquire for Dates →"
+                    className="w-full rounded border border-[#E0DBCF] px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[#181614]"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[#7A746B] mb-1">
+                    Display Sort Order
+                  </label>
+                  <input
+                    type="number"
+                    min={1}
+                    value={editingCampus.sort_order}
+                    onChange={(e) =>
+                      setEditingCampus({
+                        ...editingCampus,
+                        sort_order: parseInt(e.target.value) || 1,
+                      })
+                    }
+                    className="w-full rounded border border-[#E0DBCF] px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[#181614]"
+                  />
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2 pt-2">
+                <input
+                  type="checkbox"
+                  id="campus-active"
+                  checked={editingCampus.is_active}
+                  onChange={(e) =>
+                    setEditingCampus({ ...editingCampus, is_active: e.target.checked })
+                  }
+                  className="h-4 w-4 rounded accent-[#181614]"
+                />
+                <label htmlFor="campus-active" className="text-xs font-semibold text-[#181614]">
+                  Active and visible on public website
+                </label>
+              </div>
+
+              <div className="flex items-center justify-end gap-3 pt-4 border-t border-[#EFECE6]">
+                <button
+                  type="button"
+                  onClick={() => setEditingCampus(null)}
+                  className="rounded px-4 py-2 text-xs font-semibold text-[#7A746B] hover:text-[#181614]"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="rounded bg-[#181614] px-4 py-2 text-xs font-bold uppercase tracking-wider text-white hover:bg-black transition-colors"
+                >
+                  Save Campus Program
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
 
       {/* MODAL: PROGRAM EDIT */}
       {editingProgram && (
