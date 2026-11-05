@@ -3,12 +3,12 @@ import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const NAV_LINKS = [
-  { label: "About", href: "#story" },
-  { label: "Programs", href: "#programs" },
-  { label: "Topics", href: "#topics" },
-  { label: "Reel", href: "#reel" },
-  { label: "Reviews", href: "#endorsements" },
-  { label: "FAQ", href: "#faq" },
+  { label: "About", href: "/#story" },
+  { label: "Programs", href: "/#programs" },
+  { label: "Topics", href: "/#topics" },
+  { label: "Reel", href: "/#reel" },
+  { label: "Reviews", href: "/#endorsements" },
+  { label: "FAQ", href: "/#faq" },
 ];
 
 export function Header() {
@@ -31,8 +31,8 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex h-auto max-w-7xl items-center justify-between px-6 sm:px-10 gap-6">
-        {/* Brand Logo - text removed, official logo used */}
-        <a href="#home" className="shrink-0 flex items-center py-2">
+        {/* Brand Logo */}
+        <a href="/#home" className="shrink-0 flex items-center py-2">
           <img
             src={logo}
             alt="TOK2EM — Our Words, Your Wisdom"
@@ -65,7 +65,7 @@ export function Header() {
           </a>
 
           <a
-            href="#inquire"
+            href="/#inquire"
             className="hidden md:inline-flex items-center justify-center rounded-full bg-[#181614] px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-[#FAF8F5] transition-all hover:bg-black shadow-xs"
           >
             Check Availability
@@ -102,7 +102,7 @@ export function Header() {
                 Toll-Free: (844) I-tok-2-em
               </a>
               <a
-                href="#inquire"
+                href="/#inquire"
                 onClick={() => setOpen(false)}
                 className="inline-flex items-center justify-center rounded-full bg-[#181614] py-3.5 text-xs font-bold uppercase tracking-wider text-[#FAF8F5]"
               >

@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from "react";
+import { Phone, Mail, Globe, MapPin } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { submitInquiry } from "@/lib/cms-client";
 
@@ -43,54 +44,71 @@ export function BookCall() {
                 or reach out directly.
               </p>
 
-              <div className="mt-12 space-y-6 border-t border-[#E8E4DC] pt-8 text-sm">
-                <div>
-                  <span className="font-mono-label text-[10px] text-[#7A746B]">
-                    Toll-Free Phone (Call / Text)
-                  </span>
-                  <a
-                    href="tel:+18444865236"
-                    className="block font-serif text-2xl text-[#181614] hover:underline mt-1"
-                  >
-                    (844) I-tok-2-em
-                  </a>
+              <div className="mt-10 space-y-6 border-t border-[#E8E4DC] pt-8 text-sm">
+                <div className="flex items-start gap-3.5">
+                  <div className="rounded-full bg-white border border-[#E8E4DC] p-2 text-[#181614] shrink-0 mt-0.5">
+                    <Phone className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <span className="font-mono-label text-[10px] uppercase tracking-wider text-[#7A746B] block">
+                      Toll-Free Phone (Call / Text)
+                    </span>
+                    <a
+                      href="tel:+18444865236"
+                      className="font-serif text-2xl font-medium text-[#181614] hover:underline"
+                    >
+                      (844) I-tok-2-em
+                    </a>
+                  </div>
                 </div>
-                <div>
-                  <span className="font-mono-label text-[10px] text-[#7A746B]">Direct Email</span>
-                  <a
-                    href="mailto:info@tok2em.com"
-                    className="block font-mono text-sm text-[#181614] hover:underline mt-1"
-                  >
-                    info@tok2em.com
-                  </a>
+
+                <div className="flex items-start gap-3.5">
+                  <div className="rounded-full bg-white border border-[#E8E4DC] p-2 text-[#181614] shrink-0 mt-0.5">
+                    <Mail className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <span className="font-mono-label text-[10px] uppercase tracking-wider text-[#7A746B] block">
+                      Direct Email
+                    </span>
+                    <a
+                      href="mailto:info@tok2em.com"
+                      className="font-mono text-sm font-semibold text-[#181614] hover:underline"
+                    >
+                      info@tok2em.com
+                    </a>
+                  </div>
                 </div>
-                <div>
-                  <span className="font-mono-label text-[10px] text-[#7A746B]">
-                    Official Domain
-                  </span>
-                  <a
-                    href="https://talk2emllc.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="block font-mono text-xs text-[#181614] hover:underline mt-1"
-                  >
-                    talk2emllc.com
-                  </a>
+
+                <div className="flex items-start gap-3.5">
+                  <div className="rounded-full bg-white border border-[#E8E4DC] p-2 text-[#181614] shrink-0 mt-0.5">
+                    <Globe className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <span className="font-mono-label text-[10px] uppercase tracking-wider text-[#7A746B] block">
+                      Official Domain
+                    </span>
+                    <a
+                      href="https://talk2emllc.com"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="font-mono text-xs font-semibold text-[#181614] hover:underline"
+                    >
+                      talk2emllc.com
+                    </a>
+                  </div>
                 </div>
-                <div>
-                  <span className="font-mono-label text-[10px] text-[#7A746B]">Base Location</span>
-                  <p className="font-serif text-base text-[#181614] mt-1">
-                    Des Moines, Iowa • Available Nationwide
-                  </p>
-                </div>
-                <div className="pt-2">
-                  <div className="overflow-hidden rounded-md border border-[#E8E4DC] bg-[#181614] p-1.5 shadow-xs max-w-[240px]">
-                    <img
-                      src="/contact-card.jpeg"
-                      alt="TOK2EM Official Contact Card — (844) I-tok-2-em • info@tok2em.com • talk2emllc.com"
-                      className="w-full h-auto object-cover rounded"
-                      loading="lazy"
-                    />
+
+                <div className="flex items-start gap-3.5">
+                  <div className="rounded-full bg-white border border-[#E8E4DC] p-2 text-[#7A746B] shrink-0 mt-0.5">
+                    <MapPin className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <span className="font-mono-label text-[10px] uppercase tracking-wider text-[#7A746B] block">
+                      Base Location
+                    </span>
+                    <p className="font-serif text-base text-[#181614]">
+                      Des Moines, Iowa • Available Nationwide
+                    </p>
                   </div>
                 </div>
               </div>
