@@ -744,14 +744,28 @@ function AdminPortalPage() {
                       className="mt-1 block w-full font-serif text-2xl font-bold text-[#181614] focus:outline-none focus:ring-1 focus:ring-[#181614] px-2 py-1 rounded"
                     />
                   </div>
-                  <a
-                    href={`/${legalPage.slug}`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1 text-xs font-medium text-blue-600 hover:underline"
-                  >
-                    View Live Page <ExternalLink className="h-3 w-3" />
-                  </a>
+                  <div className="flex items-center gap-3">
+                    <a
+                      href={
+                        legalPage.slug === "privacy-policy"
+                          ? "/privacy-policy.pdf"
+                          : "/terms-and-conditions.pdf"
+                      }
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1 text-xs font-medium text-[#5A554E] hover:text-[#181614] hover:underline"
+                    >
+                      Original PDF <ExternalLink className="h-3 w-3" />
+                    </a>
+                    <a
+                      href={`/${legalPage.slug}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1 text-xs font-medium text-blue-600 hover:underline"
+                    >
+                      View Live Page <ExternalLink className="h-3 w-3" />
+                    </a>
+                  </div>
                 </div>
 
                 <div>

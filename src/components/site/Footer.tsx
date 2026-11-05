@@ -21,14 +21,19 @@ export function Footer() {
           </a>
 
           <div className="flex flex-wrap items-center gap-6 text-xs font-mono-label text-[#7A746B]">
-            <a href="tel:+15152384806" className="hover:text-[#181614] transition-colors">
-              515.238.4806
+            <a href="tel:+18444865236" className="hover:text-[#181614] transition-colors">
+              (844) I-tok-2-em
+            </a>
+            <a href="mailto:info@tok2em.com" className="hover:text-[#181614] transition-colors">
+              info@tok2em.com
             </a>
             <a
-              href="mailto:brett.lasko@icloud.com"
+              href="https://talk2emllc.com"
+              target="_blank"
+              rel="noreferrer"
               className="hover:text-[#181614] transition-colors"
             >
-              brett.lasko@icloud.com
+              talk2emllc.com
             </a>
             <span>Des Moines, Iowa • Nationwide</span>
           </div>

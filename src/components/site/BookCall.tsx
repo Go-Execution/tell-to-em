@@ -46,22 +46,35 @@ export function BookCall() {
               <div className="mt-12 space-y-6 border-t border-[#E8E4DC] pt-8 text-sm">
                 <div>
                   <span className="font-mono-label text-[10px] text-[#7A746B]">
-                    Direct Phone (Call / Text)
+                    Toll-Free Phone (Call / Text)
                   </span>
                   <a
-                    href="tel:+15152384806"
+                    href="tel:+18444865236"
                     className="block font-serif text-2xl text-[#181614] hover:underline mt-1"
                   >
-                    515.238.4806
+                    (844) I-tok-2-em
                   </a>
                 </div>
                 <div>
                   <span className="font-mono-label text-[10px] text-[#7A746B]">Direct Email</span>
                   <a
-                    href="mailto:brett.lasko@icloud.com"
+                    href="mailto:info@tok2em.com"
+                    className="block font-mono text-sm text-[#181614] hover:underline mt-1"
+                  >
+                    info@tok2em.com
+                  </a>
+                </div>
+                <div>
+                  <span className="font-mono-label text-[10px] text-[#7A746B]">
+                    Official Domain
+                  </span>
+                  <a
+                    href="https://talk2emllc.com"
+                    target="_blank"
+                    rel="noreferrer"
                     className="block font-mono text-xs text-[#181614] hover:underline mt-1"
                   >
-                    brett.lasko@icloud.com
+                    talk2emllc.com
                   </a>
                 </div>
                 <div>
@@ -69,6 +82,16 @@ export function BookCall() {
                   <p className="font-serif text-base text-[#181614] mt-1">
                     Des Moines, Iowa • Available Nationwide
                   </p>
+                </div>
+                <div className="pt-2">
+                  <div className="overflow-hidden rounded-md border border-[#E8E4DC] bg-[#181614] p-1.5 shadow-xs max-w-[240px]">
+                    <img
+                      src="/contact-card.jpeg"
+                      alt="TOK2EM Official Contact Card — (844) I-tok-2-em • info@tok2em.com • talk2emllc.com"
+                      className="w-full h-auto object-cover rounded"
+                      loading="lazy"
+                    />
+                  </div>
                 </div>
               </div>
             </div>

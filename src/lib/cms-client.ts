@@ -20,7 +20,7 @@ import type {
 function getStored<T>(key: string, fallback: T): T {
   if (typeof window === "undefined") return fallback;
   try {
-    const item = localStorage.getItem(`tok2em_cms_${key}`);
+    const item = localStorage.getItem(`tok2em_cms_v3_${key}`);
     return item ? JSON.parse(item) : fallback;
   } catch {
     return fallback;
@@ -30,7 +30,7 @@ function getStored<T>(key: string, fallback: T): T {
 function setStored<T>(key: string, value: T): void {
   if (typeof window === "undefined") return;
   try {
-    localStorage.setItem(`tok2em_cms_${key}`, JSON.stringify(value));
+    localStorage.setItem(`tok2em_cms_v3_${key}`, JSON.stringify(value));
   } catch (err) {
     console.warn("Could not save to localStorage:", err);
   }

@@ -4,14 +4,16 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { fetchLegalPage } from "@/lib/cms-client";
 import type { LegalPage } from "@/types/cms";
+import { Download, FileText } from "lucide-react";
 
 export const Route = createFileRoute("/privacy-policy")({
   head: () => ({
     meta: [
-      { title: "Privacy Policy — TOK2EM | Brett Lasko" },
+      { title: "Talk to Them LLC — Privacy Policy | TOK2EM" },
       {
         name: "description",
-        content: "Privacy policy and educator data protection standards for TOK2EM LLC.",
+        content:
+          "Official privacy policy and educator data protection standards for Talk to Them LLC operating talk2emllc.com.",
       },
     ],
   }),
@@ -30,23 +32,31 @@ function PrivacyPolicyPage() {
       <Header />
       <main className="pt-32 pb-24 sm:pt-40 sm:pb-32 px-6 sm:px-10">
         <div className="mx-auto max-w-4xl bg-white border border-[#E8E4DC] p-8 sm:p-14 shadow-xs rounded-sm">
-          <div className="border-b border-[#E8E4DC] pb-6 mb-8">
-            <span className="text-[11px] font-mono-label uppercase tracking-widest text-[#7A746B]">
-              Legal & Compliance
-            </span>
-            <h1 className="mt-2 font-serif text-3xl sm:text-4xl font-normal tracking-tight text-[#181614]">
-              {page?.title || "Privacy Policy"}
-            </h1>
-            {page?.last_updated_at && (
-              <p className="mt-2 text-xs font-mono-label text-[#7A746B]">
-                Last updated:{" "}
-                {new Date(page.last_updated_at).toLocaleDateString("en-US", {
-                  month: "long",
-                  year: "numeric",
-                  day: "numeric",
-                })}
-              </p>
-            )}
+          <div className="border-b border-[#E8E4DC] pb-6 mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div>
+              <span className="text-[11px] font-mono-label uppercase tracking-widest text-[#7A746B]">
+                Legal & Compliance • talk2emllc.com
+              </span>
+              <h1 className="mt-2 font-serif text-3xl sm:text-4xl font-normal tracking-tight text-[#181614]">
+                {page?.title || "Talk to Them LLC — Privacy Policy"}
+              </h1>
+              {page?.last_updated_at && (
+                <p className="mt-2 text-xs font-mono-label text-[#7A746B]">
+                  Last updated: Nov 5, 2026
+                </p>
+              )}
+            </div>
+
+            <a
+              href="/privacy-policy.pdf"
+              download="Talk to Them LLC _ Privacy Policy.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-[#181614] bg-white px-4 py-2 text-xs font-mono-label font-bold uppercase tracking-wider text-[#181614] hover:bg-[#181614] hover:text-white transition-colors shrink-0"
+            >
+              <Download className="h-3.5 w-3.5" />
+              Download Official PDF
+            </a>
           </div>
 
           {page?.content_html ? (
